@@ -1,5 +1,6 @@
 function JsonNodeBuilder(el, elements, mainElement) {
 	if (!elements) elements = {};
+	if (arguments.length === 1) mainElement = true;
 	var _resultElement = document.createElement(el.tag);
 	var keys = Object.keys(el);
 	keys.map(function(item, index) {
@@ -27,7 +28,7 @@ function JsonNodeBuilder(el, elements, mainElement) {
 
 	elements['render'] = function() { return _resultElement; }
 	if (mainElement) {
-		elements["MAIN"] = _resultElement;
+		elements["rendered"] = _resultElement;
 	}
 	return elements;
 }
