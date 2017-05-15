@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>App Store</title>
+	<meta name="viewport" content="user-scalable=no, width=device-width">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>.row {margin-top: 20px;}</style>
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
+			<form class="form-group" id="main-form">
+				<div class="input-group my-group"> 
+					<span class="input-group-addon">
+						<input type="radio" value="us" name="country" checked>EN
+						<input type="radio" value="ru" name="country" >RU
+					</span>
+					<input type="text" class="form-control" id="search" placeholder="Search"/>
+					<span class="input-group-btn">
+						<input class="btn btn-default my-group-button" type="submit" value="Search">
+					</span>
+				</div>
+			</form>
+		</div>
+		
+		<div class="col-md-12 table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<th>Title</th>
+					<th>Bundle ID</th>
+					<th>Url</th>
+					<th>Versions</th>
+				</thead>
+				<tbody id="main-table"></tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Modal Header</h4>
+			</div>
+			<div class="modal-body">
+				<p>Some text in the modal.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+<script>
+	function AppRow(app) {
+		this.row = document.createElement('tr');
+		this.row.innerHTML = '<td>' + app.name + '</td> \
+							  <td>' + app.bundleId + '</td> \
+							  <td><a target="_blank" href="' + app.shortUrl + '">' + app.shortUrl + '</a></td>';
+
+		var versionButton = document.createElement('button');
+		var versionButtonTd = document.createElement('td');
+		versionButtonTd.appendChild(versionButton);
+		this.row.appendChild(versionButtonTd);
+
+		versionButton.className = 'btn btn-info btn-sm';
+		versionButton.textContent = app.id;
+		versionButton.addEventListener('click', function(e) {
+			var radios = document.getElementsByName('country');
+			var country = (radios[0].checked ? radios[0].value : radios[1].value);
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', 'api.php?appid=' + decodeURIComponent(app.id) + '&country=' + country, true);
+			xhr.onreadystatechange = function(e) {
+				if (xhr.readyState === 4) {
+					var res = JSON.parse(xhr.responseText);
+					console.log(res);
+					$('#myModal').modal('show');
+				}
+			}
+			xhr.send();
+		}.bind(this));
+
+		return this.row;
+	}
+
+	var fm = document.getElementById('main-form');
+	fm.addEventListener('submit', function(e) {
+		e.preventDefault();
+	});
+	fm.addEventListener('submit', function(e) {
+		var search = document.getElementById('search').value;
+		var radios = document.getElementsByName('country');
+		var country = (radios[0].checked ? radios[0].value : radios[1].value);
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', 'api.php?search=' + decodeURIComponent(search) + '&country=' + country, true);
+		xhr.onreadystatechange = function(e) {
+			if (xhr.readyState === 4) {
+				var res = JSON.parse(xhr.responseText)["storePlatformData"]["native-search-lockup"]["results"];
+				console.log(res);
+				var table = document.getElementById('main-table');
+				table.innerHTML = '';
+				Object.keys(res).map(function(item, index) {
+					table.appendChild(new AppRow(res[item]));
+				});
+			}
+		}
+		xhr.send();
+
+		e.preventDefault();
+	});
+</script>
+
+</body>
+</html>
