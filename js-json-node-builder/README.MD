@@ -23,7 +23,7 @@ console.log(element); //> Object {h3-pointer: h3.title, card-description: p.desc
 document.body.appendChild(element.rendered);
 ```
 
-Rendered element (element.rendered);
+Сгенерированый елемент (element.rendered);
 ```hmtl
 <div class="card">
 	<h3 class="title">Info Card</h3>
