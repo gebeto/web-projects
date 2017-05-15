@@ -3,6 +3,16 @@
 
 
 # Пример
-'''json
-
-'''
+```javascript
+var element = JsonNodeBuilder({
+	tag: 'div',
+	className: 'card',
+	children: [{
+		tag: 'h3',
+		className: 'title'
+	}, {
+		tag: 'p',
+		className: 'description'
+	}]
+});
+```
