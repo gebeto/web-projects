@@ -9,10 +9,18 @@ var element = JsonNodeBuilder({
 	className: 'card',
 	children: [{
 		tag: 'h3',
-		className: 'title'
+		className: 'title',
+		textContent: 'Info Card'
 	}, {
 		tag: 'p',
-		className: 'description'
+		className: 'description',
+		textContent: 'Information test card for GitHub.'
 	}]
 });
+```
+```hmtl
+<div class="card">
+	<h3 class="title">Info Card</h3>
+	<p class="description">Information test card for GitHub.</p>
+</div>
 ```
