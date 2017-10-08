@@ -5,7 +5,8 @@
     <key>PayloadContent</key>
     <dict>
         <key>URL</key>
-        <string>http://URL.COM/process_data.php</string>
+        <!-- <string>http://URL.COM/process_data.php</string> -->
+        <string>vk://</string>
     <key>DeviceAttributes</key>
     <array>
         <string>UDID</string>
