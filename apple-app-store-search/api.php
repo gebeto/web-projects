@@ -7,7 +7,7 @@ $countries = array("ru" => "143469-16,29",
 				   "us" => "");
 
 if (isset($_GET['search'], $_GET['country'])) {
-	$term = $_GET['search'];
+	$term = urlencode($_GET['search']);
 	$country = $countries[$_GET['country']];
 	// Create a stream
 	$opts = [
