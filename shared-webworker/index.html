@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Index</title>
+</head>
+<body>
+	<h1>Index</h1>
+
+	<script type="text/javascript">
+		var h = document.querySelector('h1');
+		var myWorker = new SharedWorker("worker.js");
+		myWorker.port.start();
+
+		myWorker.port.onmessage = function (e) {
+			console.log(e.data);
+			// document.querySelector('title').innerHTML = e.data.title;
+			h.innerHTML = e.data.title;
+		}
+
+	</script>
+</body>
+</html>
