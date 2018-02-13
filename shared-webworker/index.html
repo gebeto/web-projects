@@ -9,12 +9,13 @@
 
 	<script type="text/javascript">
 		var h = document.querySelector('h1');
+		var title = document.querySelector('title');
 		var myWorker = new SharedWorker("worker.js");
 		myWorker.port.start();
 
 		myWorker.port.onmessage = function (e) {
 			console.log(e.data);
-			// document.querySelector('title').innerHTML = e.data.title;
+			title.innerHTML = e.data.title;
 			h.innerHTML = e.data.title;
 		}
 
