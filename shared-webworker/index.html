@@ -10,7 +10,7 @@
 	<script type="text/javascript">
 		var h = document.querySelector('h1');
 		var title = document.querySelector('title');
-		var myWorker = new SharedWorker("worker.js");
+		var myWorker = new SharedWorker("worker.js", "test");
 		myWorker.port.start();
 
 		myWorker.port.onmessage = function (e) {
