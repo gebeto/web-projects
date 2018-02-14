@@ -5,10 +5,9 @@ var cache = [];
 var count = 0;
 var id, port;
 
-
-onconnect = function (e) {
+addEventListener('connect', function(e) {
 	let port = e.ports[0];
-	port.start();
+	// port.start();
 	port.postMessage({title: 'init', isRan: isRan});
 	cache.push(port);
 	
@@ -21,4 +20,4 @@ onconnect = function (e) {
 			count++;
 		}, 2000);
 	}
-}
+});
