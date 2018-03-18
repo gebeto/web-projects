@@ -48,8 +48,8 @@ export function createCard(colorStart, colorEnd, name) {
 	// card.innerHTML = cardNew(colorStart, colorEnd, name);
 	cards.push({
 		block: card,
-		hue: d,
 		lum: lum,
+		hue: d,
 	});
 	return card;
 }

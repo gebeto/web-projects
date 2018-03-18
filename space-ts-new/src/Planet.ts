@@ -52,6 +52,24 @@ class Planet {
 		ctx.fillStyle = 'black';
 		ctx.fill();
 		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.arc(this.x, this.y - 20, 30, 0, PI2);
+		ctx.fillStyle = 'black';
+		ctx.fill();
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.arc(this.x - 40, this.y + 10, 10, 0, PI2);
+		ctx.fillStyle = 'black';
+		ctx.fill();
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.arc(this.x - 45, this.y - 15, 5, 0, PI2);
+		ctx.fillStyle = 'black';
+		ctx.fill();
+		ctx.stroke();
 		
 		this.drawFrontCircle(ctx, this.cradius);
 		this.drawFrontCircle(ctx, this.cradius + 10, 12);
