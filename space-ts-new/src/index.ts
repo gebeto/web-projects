@@ -47,8 +47,22 @@ document.addEventListener('mousemove', function(e: MouseEvent) {
 })()
 
 UI.init();
-const p1 = new UI.PlanetDescription(stars[5].stars[0]);
-const p2 = new UI.PlanetDescription(stars[5].stars[5]);
+
+// const p1 = new UI.PlanetDescription(stars[5].stars[0]);
+// const p2 = new UI.PlanetDescription(stars[5].stars[5]);
+
+// STARS GENERATOR
+let functionalityStars = 4;
+stars[5].each((star) => {
+  console.log(star.x, star.y);
+  if (
+      star.x > 100 && star.x < G.w - 200 &&
+      star.y > 100 && star.y < G.h - 100
+      && functionalityStars-- > 0
+  ) {
+    new UI.PlanetDescription(star);
+  }
+});
 
 
 
