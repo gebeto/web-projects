@@ -1,3 +1,4 @@
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 const fs = require('fs');
 
@@ -24,7 +25,8 @@ const config = {
 		compress: true,
 		port: 9000,
 		open: true,
-	}
+	},
+	plugins: []
 };
 
 if (process.env.npm_lifecycle_event === 'build:ggi') {
@@ -32,6 +34,20 @@ if (process.env.npm_lifecycle_event === 'build:ggi') {
 	if (fs.existsSync(newOutpupPath)) {
 		config.output.path = newOutpupPath;
 	}
+}
+
+if (process.env.npm_lifecycle_event.match(/^build/)) {
+	config.plugins.push(
+		new UglifyJsPlugin({
+			uglifyOptions: {
+				warnings: false,
+				unsafe: true,
+				compress: {
+					drop_console: true
+				}
+			}
+		})
+	);
 }
 
 module.exports = config;
