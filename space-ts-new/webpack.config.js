@@ -1,6 +1,7 @@
 const path = require('path');
+const fs = require('fs');
 
-module.exports = {
+const config = {
 	// mode: 'production',
 	entry: "./src/index.ts",
 	output: {
@@ -25,3 +26,12 @@ module.exports = {
 		open: true,
 	}
 };
+
+if (process.env.npm_lifecycle_event === 'build:ggi') {
+	const newOutpupPath = path.resolve(__dirname, '../../gebeto.github.io/for-fun/space');
+	if (fs.existsSync(newOutpupPath)) {
+		config.output.path = newOutpupPath;
+	}
+}
+
+module.exports = config;

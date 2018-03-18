@@ -8,7 +8,6 @@ export function init() {
 	svg.node.setAttribute('class', 'fixed');
 }
 
-
 export class PlanetDescription {
 	star: Star;
 
