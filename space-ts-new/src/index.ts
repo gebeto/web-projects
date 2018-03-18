@@ -20,7 +20,6 @@ window.addEventListener('resize', function() {
   planet.changeCenter(G.w / 2, G.h / 2);
 })
 
-// G.canvas.addEventListener('mousemove', function(e: MouseEvent) {
 document.addEventListener('mousemove', function(e: MouseEvent) {
   var x = e.clientX - G.w / 2;
   var y = e.clientY - G.h / 2;
@@ -31,7 +30,6 @@ document.addEventListener('mousemove', function(e: MouseEvent) {
 
   planet.think(x, y);
 });
-
 
 // LOOP
 (function loop() {
@@ -51,3 +49,43 @@ document.addEventListener('mousemove', function(e: MouseEvent) {
 UI.init();
 const p1 = new UI.PlanetDescription(stars[5].stars[0]);
 const p2 = new UI.PlanetDescription(stars[5].stars[5]);
+
+
+
+// var l: any = null;
+// setInterval(function() {
+//   console.log(l);
+// }, 1000);
+// window.addEventListener('devicemotion', function(e) {
+//   // l = e;
+//   var x = e.accelerationIncludingGravity.x * 100;
+//   var y = e.accelerationIncludingGravity.y * -100;
+//   var z = e.accelerationIncludingGravity.z * 100;
+
+//   l = {
+//     x: x,
+//     y: y,
+//     z: z,
+//   };
+
+//   for (let i = 0; i < stars.length; i++) {
+//     stars[i].move(x, y);
+//   }
+
+//   planet.think(x, y);
+// }, true);
+
+// window.addEventListener("deviceorientation", function(e) {
+//   l = e;
+//   // e.beta, e.gamma
+//   // var x = e.gamma - G.w / 10;
+//   // var y = e.beta - G.h / 10;
+//   var x = e.gamma;
+//   var y = e.beta;
+
+//   for (let i = 0; i < stars.length; i++) {
+//     stars[i].move(x, y);
+//   }
+
+//   planet.think(x, y);
+// }, true);
