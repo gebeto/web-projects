@@ -1,4 +1,3 @@
-import { ctx } from './canvas';
 import { Star } from './Star';
 
 export class StarsLayer {
@@ -11,9 +10,9 @@ export class StarsLayer {
     }
   }
 
-  draw() {
+  draw(ctx: CanvasRenderingContext2D) {
     for (var i = 0; i < this.stars.length; i++) {
-      this.stars[i].draw();
+      this.stars[i].draw(ctx);
     }
   }
 
@@ -27,5 +26,12 @@ export class StarsLayer {
     for (var i = 0; i < this.stars.length; i++) {
       cb(this.stars[i], i, this.stars);
     }
+  }
+}
+
+
+export class StarsLayerWithUI extends StarsLayer {
+  constructor(index: number) {
+    super(index);
   }
 }

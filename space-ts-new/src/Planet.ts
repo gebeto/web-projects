@@ -1,6 +1,6 @@
-import { ctx, w, h, PI2 } from './canvas';
+import G, { PI2 } from './canvas';
 
-export class Planet {
+class Planet {
 	x: number;
 	y: number;
 	origX: number;
@@ -10,8 +10,8 @@ export class Planet {
 	mv: number;
 
 	constructor() {
-		this.x = w / 2;
-		this.y = h / 2;
+		this.x = G.w / 2;
+		this.y = G.h / 2;
 		this.origX = this.x;
 		this.origY = this.y;
 		this.radius = 100;
@@ -19,7 +19,7 @@ export class Planet {
 		this.mv = 20;
 	}
 
-	drawBackCircle(radius: number, y?: number) {
+	drawBackCircle(ctx: CanvasRenderingContext2D, radius: number, y?: number) {
 		y = y || 0;
 		ctx.beginPath();
 		ctx.moveTo(this.x - radius,this.y - this.mv);
@@ -31,7 +31,7 @@ export class Planet {
 		ctx.stroke();
 	}
 
-	drawFrontCircle(radius: number, y?: number) {
+	drawFrontCircle(ctx: CanvasRenderingContext2D, radius: number, y?: number) {
 		y = y || 0;
 		ctx.beginPath();
 		ctx.moveTo(this.x - radius,this.y - this.mv);
@@ -43,9 +43,9 @@ export class Planet {
 		ctx.stroke();
 	}
 
-	draw() {
-		this.drawBackCircle(this.cradius);
-		this.drawBackCircle(this.cradius + 10, 4);
+	draw(ctx: CanvasRenderingContext2D) {
+		this.drawBackCircle(ctx, this.cradius);
+		this.drawBackCircle(ctx, this.cradius + 10, 4);
 		
 		ctx.beginPath();
 		ctx.arc(this.x, this.y, 100, 0, PI2);
@@ -53,15 +53,22 @@ export class Planet {
 		ctx.fill();
 		ctx.stroke();
 		
-		this.drawFrontCircle(this.cradius);
-		this.drawFrontCircle(this.cradius + 10, 12);
+		this.drawFrontCircle(ctx, this.cradius);
+		this.drawFrontCircle(ctx, this.cradius + 10, 12);
 	}
 
 	think(x: number, y: number) {
-		// this.mv = y / 50;
-		// this.mv = y / 50;
 		this.mv = y / 100 + x / 100;
 		this.x = this.origX + x / 30;
 		this.y = this.origY + y / 30;
 	}
+
+	changeCenter(x: number, y: number) {
+		this.origX = x;
+		this.origY = y;
+		this.x = x;
+		this.y = y;
+	}
 }
+
+export const planet = new Planet();

@@ -1,21 +1,24 @@
 {
   "name": "space-ts",
   "version": "1.0.0",
-  "description": "",
+  "description": "Planets profile",
+  "repository": "https://github.com/gebeto/web-projects",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack -d --watch",
     "build": "webpack -p",
-    "watch:serve": "webpack-dev-server --hot"
+    "dev": "webpack-dev-server --hot"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/snapsvg": "^0.4.30",
     "awesome-typescript-loader": "^4.0.1",
     "typescript": "^2.7.2",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.2"
-  }
+  },
+  "dependencies": {}
 }
