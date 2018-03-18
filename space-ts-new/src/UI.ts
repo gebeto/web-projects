@@ -26,23 +26,27 @@ export class PlanetDescription {
 
 		this.animating = true;
 		// this.circle = svg.circle(this.x, this.y, 8).attr({
-		this.circle = svg.circle(0, 0, 8).attr({
+		this.circle = svg.circle(0, 0, 10).attr({
 			fill: 'transparent',
 			stroke: '#FFFF00',
-			strokeWidth: 3,
+			strokeWidth: 2,
 		});
 
 		this.element = svg.group(
 			this.circle,
-			svg.rect(0, 0, 20, 20).attr({fill: 'red'}),
-		)
+			svg.rect(0, 0, 1, 1),
+		);
+		this.element[1].attr({
+			stroke: '#fff',
+			// fill: 'none'
+		})
 
 		this.element.attr({
 			transform: `translate(${this.x}, ${this.y})`,
 		});
 
 		this.connectWithStar();
-		this.initAnimation();
+		this.mouseEvents();
 		this.pulseOn();
 	}
 
@@ -64,39 +68,41 @@ export class PlanetDescription {
 		});
 	}
 
-	initAnimation() {
-		this.circle.mouseout(() => {
-			this.animating = true;
-			this.circle.animate({
-				r: 6,
-			}, 400, mina.easeinout, this.pulseOut);
-			this.circle.attr({
-				fill: 'transparent'
-			}, mina.elastic);
+	mouseEvents() {
+		var opened = false;
+		this.element.click(() => {
+			if (!opened) return;
+			console.log('OUT')
+			this.element[1].animate({
+				height: 1,
+				// height: 240,
+			}, 400, mina.linear, () => {
+				this.element[1].animate({
+					width: 1,
+				}, 400, mina.linear, () => opened = false)
+			});
 		});
-		this.circle.mouseover(() => {
-			this.animating = false;
-			this.circle.animate({
-				r: 100,
-			}, 1600, mina.elastic);
-			this.circle.attr({
-				fill: 'red'
-			}, mina.elastic);
+		this.element.click(() => {
+			if (opened) return;
+			console.log('OVER')
+			this.element[1].animate({
+				width: 180,
+			}, 400, mina.linear, () => {
+				this.element[1].animate({
+					height: 80,
+				}, 400, mina.linear, () => {opened = true});
+			});
 		});
 	}
 
 	pulseOn = () => {
-		if (this.animating) {
-			this.circle.animate({
-				r: 8,
-			}, 600, mina.elastic, this.pulseOut);
-		}
+		this.circle.animate({
+			r: 8,
+		}, 600, mina.elastic, this.pulseOut);
 	}
 	pulseOut = () => {
-		if (this.animating) {
-			this.circle.animate({
-				r: 6,
-			 }, 600, mina.elastic, this.pulseOn);
-		}
+		this.circle.animate({
+			r: 5,
+		}, 600, mina.elastic, this.pulseOn);
 	}
 }

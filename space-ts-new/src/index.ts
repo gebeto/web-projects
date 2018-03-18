@@ -49,4 +49,5 @@ document.addEventListener('mousemove', function(e: MouseEvent) {
 })()
 
 UI.init();
-const p = new UI.PlanetDescription(stars[0].stars[0]);
+const p1 = new UI.PlanetDescription(stars[5].stars[0]);
+const p2 = new UI.PlanetDescription(stars[5].stars[5]);
