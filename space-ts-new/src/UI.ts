@@ -71,10 +71,8 @@ export class PlanetDescription {
 		var opened = false;
 		this.element.click(() => {
 			if (!opened) return;
-			console.log('OUT')
 			this.element[1].animate({
 				height: 1,
-				// height: 240,
 			}, 400, mina.linear, () => {
 				this.element[1].animate({
 					width: 1,
@@ -83,7 +81,6 @@ export class PlanetDescription {
 		});
 		this.element.click(() => {
 			if (opened) return;
-			console.log('OVER')
 			this.element[1].animate({
 				width: 180,
 			}, 400, mina.linear, () => {
