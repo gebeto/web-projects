@@ -6,31 +6,7 @@ if (!isset($_REQUEST)) {
 
 $php_input = file_get_contents('php://input');
 if (!$php_input) {
-	echo '
-		<!DOCTYPE html>
-		<html>
-		<head>
-			<meta charset="utf-8">
-			<title></title>
-		</head>
-		<body>
-			<ul>
-				<li>
-					<div>
-						<a href="https://vkhost.github.io/scope/">Get User token</a>
-						Переходи и жми ГОТОВО не изменяя параметры
-					</div>
-				</li>
-				<li></li>
-				<li>Вставь этот УРЛ в колбек своей группы подставив свои данные в выделенные места</li>
-				<li>
-					<div>
-						https://mha0.ru/addition_bot/?group_token=<b>GROUP_TOKEN</b>&user_token=<b>USER_TOKEN</b>&confirmation_token=<b>CONFIRMATION_TOKEN</b>&chat_id=<b>CHAT_ID</b>&phrase=<b>PHRASE</b>
-					</div>
-				</li>
-			</ul>
-		</body>
-		</html>';
+	include_once 'readme.html';;
 	return;	
 }
 
