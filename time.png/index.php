@@ -1,6 +1,6 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Origin: *');
 header('Content-Type: image/png');
 
 $image_width = 500;
@@ -12,7 +12,7 @@ $image = imagecreate($image_width, $image_height);
 $gb_color = imagecolorallocate($image, 255, 255, 255);
 $font_color = imagecolorallocate($image, 0, 0, 0);
 // $font = 'ariblk.ttf';
-$font = 'fonts/AMAZON.ttf';
+$font = 'fonts/amazon.ttf';
 // $font = '3dpixel.ttf';
 if (isset($_GET['font'])) {
     $font = 'fonts/' . $_GET['font'];
