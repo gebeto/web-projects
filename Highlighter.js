@@ -88,11 +88,21 @@ function scanner() {
   var dataLastColumn = dataSheet.getLastColumn();
   var dataRange = dataSheet.getRange(1, 1, dataLastRow, dataLastColumn);
   var dataData = dataRange.getValues();
-  
+  /*
   for (var r = 0; r < dataData.length; r++) {
     for (var c = 0; c < dataData.length; c++) {
       if (scannedData.indexOf(dataData[r][c]) > -1) {
         setCellBackground(dataSheet, r, c, background);
+      }
+    }
+  }
+  */
+  for (var r = 0; r < dataData.length; r++) {
+    //for (var c = 0; c < dataData.length; c++) {
+    for (var c = 0; c < scannedData.length; c++) {
+      var index = dataData[r].indexOf(scannedData[c]);
+      if (index > -1) {
+        setCellBackground(dataSheet, r, index, background);
       }
     }
   }
