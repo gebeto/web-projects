@@ -47,7 +47,9 @@ function scanner_uninit() {
 function getScannedCodesArray(sheet) {
   var lastRow = sheet.getLastRow();
   var scannedRange = sheet.getRange(2, 3, lastRow - 1, 1);
-  var scannedData = scannedRange.getValues().map(function(item) { return item[0]; });
+  var scannedData = scannedRange.getValues()
+    .map(function(item) { return item[0]; })
+    .filter(function(item) { return item != ''});
   return scannedData;
 }
 
@@ -68,7 +70,7 @@ function scanner() {
   var scannerSheet = spreadsheet.getSheetByName("Scanner");
   if (scannerSheet == null) {
     scanner_init();
-    SpreadsheetApp.getUi().alert('Таблицю створено!\nБудь ласка заповніть таблицю кодами!')
+    SpreadsheetApp.getUi().alert('Таблицю створено!\nБудь ласка заповніть таблицю кодами!');
     return;
   }
   
@@ -78,6 +80,10 @@ function scanner() {
   var scannedData = getScannedCodesArray(scannerSheet);
   
   var dataSheet = spreadsheet.getSheetByName(dataTableName);
+  if (dataSheet == null) {
+    SpreadsheetApp.getUi().alert('Таблицю для обробки не знайдено!\nБудь ласка перевірте назву таблиці');
+    return;
+  }
   var dataLastRow = dataSheet.getLastRow();
   var dataLastColumn = dataSheet.getLastColumn();
   var dataRange = dataSheet.getRange(1, 1, dataLastRow, dataLastColumn);
