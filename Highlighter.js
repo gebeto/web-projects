@@ -48,8 +48,8 @@ function getScannedCodesArray(sheet) {
   var lastRow = sheet.getLastRow();
   var scannedRange = sheet.getRange(2, 3, lastRow - 1, 1);
   var scannedData = scannedRange.getValues()
-    .map(function(item) { return item[0]; })
-    .filter(function(item) { return item != ''});
+    .map(function(item) { return item[0]; });
+//    .filter(function(item) { return item != ''});
   return scannedData;
 }
 
@@ -97,15 +97,36 @@ function scanner() {
     }
   }
   */
+  var lastFounded = null;
+  var rowDataPositions = [];
+  var dataDataArray = [];
+  
   for (var r = 0; r < dataData.length; r++) {
-    //for (var c = 0; c < dataData.length; c++) {
-    for (var c = 0; c < scannedData.length; c++) {
-      var index = dataData[r].indexOf(scannedData[c]);
-      if (index > -1) {
-        setCellBackground(dataSheet, r, index, background);
-      }
+    for (var c = 0; c < dataData[r].length; c++) {
+      dataDataArray.push(dataData[r][c]);
+      rowDataPositions.push([r, c]);
     }
   }
+
+  scannedData.map(function(scData, scIndex) {
+    var foundedCount = 0;
+    var firstIndex = dataDataArray.indexOf(scData);
+    if (firstIndex > -1) {
+      var lastIndex = dataDataArray.lastIndexOf(scData);
+      while (firstIndex <= lastIndex) {
+        var cellPos = rowDataPositions[firstIndex];
+        if (!cellPos) break;
+        foundedCount++;
+        setCellBackground(dataSheet, cellPos[0], cellPos[1], background);
+        firstIndex = dataDataArray.indexOf(scData, firstIndex + 1);
+      }
+    }
+    if (foundedCount == 0) {
+      setCellBackground(scannerSheet, scIndex + 1, 2, 'red');
+    } else if (foundedCount > 1) {
+      setCellBackground(scannerSheet, scIndex + 1, 2, 'yellow');
+    }
+  });
   
   spreadsheet.setActiveSheet(dataSheet);
 }
