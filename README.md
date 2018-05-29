@@ -1,2 +1,2 @@
-# mini-web-projects
+# web-projects
 Маленькие полезные(иногда:D) плюшки
