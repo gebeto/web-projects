@@ -1,0 +1,14 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+}
+
+
+.slider {
+	/*width: 100vw;*/
+	width: 3000px;
+	height: 100vh;
+	overflow-y: hidden;
+	overflow-x: auto;
+}
