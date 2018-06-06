@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chat</title>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card__container">
+					<div class="card__header">
+						Chat
+					</div>
+					<div class="card__body">
+						<div class="col-sm-12">
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="row">
+										<ul class="users_user-list" id="users-list">
+											<!-- <li class="users_user-list-item">Slavik Nychkalo</li> -->
+										</ul>
+									</div>
+								</div>
+								<div class="col-sm-8">
+									<div class="row">
+										<ul class="messages__list" id="messages-list">
+											<!-- <li class="messages__list-item message__in"><p>Hello there!!!</p></li> -->
+											<!-- <li class="messages__list-item message__out"><p>HI!</p></li> -->
+										</ul>
+									</div>
+									<form class="row message__form" id="message-form">
+										<input type="hidden" name="method" value="messages.send">
+										<input type="hidden" name="to_user">
+										<div class="col-sm-12">
+											<div class="form-group">
+												<textarea name="message" rows="2" type="text" class="form-control" placeholder="Message..."></textarea>
+											</div>
+										</div>
+										<div class="col-sm-12">
+											<div class="form-group pull-right">
+												<button class="btn btn-success" type="submit">Send</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- <script src="assets/js/jquery.min.js"></script> -->
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
