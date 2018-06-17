@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Сортування</title>
+	<style>
+		.canvas-wrapper {
+			font-size: 0;
+			width: 600px;
+			height: 440px;
+			border: 1px solid #AAAAAA;
+			position: fixed;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			overflow: hidden;
+			border-radius: 10px 10px 20px 20px;
+		}
+
+		.canvas-wrapper .buttons {
+			padding: 0;
+			margin: 0;
+			text-align: center;
+			height: 40px;
+		}
+		.canvas-wrapper .buttons button {
+			border: 0;
+			padding: 0;
+			margin: 0;
+			width: 33.333334%;
+			background: #AAAAAA;
+			height: 100%;
+			display: inline-block;
+			font: 18px Arial;
+			outline: none;
+
+		}
+		.canvas-wrapper .buttons button.active {
+			background: black;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div class="canvas-wrapper">
+		<canvas id="canvas" width="600" height="400"></canvas>
+		<div class="buttons" id="buttons">
+			<button class="active" data-sort="bubble">Bubble</button>
+			<button data-sort="selection">Selection</button>
+			<button data-sort="insertion">Insertions</button>
+		</div>
+	</div>
+	<script src="dist/main.js"></script>
+</body>
+</html>
