@@ -9,6 +9,8 @@ export function getColor(sortingState, currentIndex) {
 		result = "red";
 	} else if (sortingStateValue.j === currentIndex) {
 		result = "orange";
+	} else if (sortingStateValue.k && sortingStateValue.k === currentIndex) {
+		result = "green";
 	}
 
 	return result;

@@ -6,7 +6,7 @@ export function* selectionSortArray(arr) {
 			if (arr[j] > arr[selectedIndex]) {
 				selectedIndex = j;
 			}
-			yield { j: j, i: i };
+			yield { j: j, i: i, k: selectedIndex };
 		}
 
 		if (i != selectedIndex && arr[i] < arr[selectedIndex]) {
