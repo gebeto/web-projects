@@ -33,7 +33,7 @@ var LiquidButton = function () {
       mouseForce: 150,
       forceLimit: 3
     }];
-    this.text = options.text || '▶';
+    this.text = options.text || 'Follow me';
     this.canvas = options.canvas || document.createElement('canvas');
     this.context = this.canvas.getContext('2d');
     this.wrapperElement = options.wrapperElement || document.body;

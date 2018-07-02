@@ -661,7 +661,7 @@ canvas.addEventListener('touchstart', (e) => {
 });
 
 window.addEventListener('mouseup', () => {
-    pointers[0].down = false;
+    // pointers[0].down = false;
 });
 
 window.addEventListener('touchend', (e) => {
