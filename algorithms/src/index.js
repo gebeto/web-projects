@@ -53,7 +53,7 @@ function init(sortType) {
 	SORT_TYPE = sortType;
 	// arr = randomArray(ARRAY_SIZE);
 	sort = Sort[`${sortType}SortArray`](arr);
-	drawArray(arr);
+	drawArrayBase(arr);
 }
 
 document.getElementById("sort-play-pause").addEventListener("click", function(e) {
@@ -116,6 +116,18 @@ document.querySelector("a[data-title]").click();
 	setTimeout(render, SPEED);
 })();
 
+
+
+function drawArrayBase(arr) {
+	ctx.clearRect(0, 0, w, h);
+
+	const barWidth = w / arr.length;
+	const barHeightGrad = h / Math.max.apply(null, arr);
+
+	arr.forEach(function(el, index) {
+		ctx.fillRect(barWidth * index, h, barWidth, -barHeightGrad * el);
+	});
+}
 
 function drawArray(arr) {
 	ctx.clearRect(0, 0, w, h);
