@@ -3,55 +3,118 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Сортування</title>
-	<style>
-		.canvas-wrapper {
-			font-size: 0;
-			width: 600px;
-			height: 440px;
-			border: 1px solid #AAAAAA;
-			position: fixed;
-			left: 0;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			margin: auto;
-			overflow: hidden;
-			border-radius: 10px 10px 20px 20px;
-		}
-
-		.canvas-wrapper .buttons {
-			padding: 0;
-			margin: 0;
-			text-align: center;
-			height: 40px;
-		}
-		.canvas-wrapper .buttons button {
-			border: 0;
-			padding: 0;
-			margin: 0;
-			width: 33.333334%;
-			background: #AAAAAA;
-			height: 100%;
-			display: inline-block;
-			font: 18px Arial;
-			outline: none;
-
-		}
-		.canvas-wrapper .buttons button.active {
-			background: black;
-			color: white;
-		}
-	</style>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-	<div class="canvas-wrapper">
-		<canvas id="canvas" width="600" height="400"></canvas>
-		<div class="buttons" id="buttons">
-			<button class="active" data-sort="bubble">Bubble</button>
-			<button data-sort="selection">Selection</button>
-			<button data-sort="insertion">Insertions</button>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Сортування</a>
+			</div>
+
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav" id="buttons">
+					<li>
+						<a
+							data-sort="bubble"
+							data-title="Бульбашка"
+							data-description="Бульбашка опис"
+							href="#"
+						>Бульбашка</a>
+					</li>
+					<li>
+						<a
+							data-sort="selection"
+							data-title="Вибірка"
+							data-description="Вибірка опис"
+							href="#"
+						>Вибірка</a>
+					</li>
+					<li>
+						<a
+							data-sort="insertion"
+							data-title="Вставка"
+							data-description="Вставка опис"
+							href="#"
+						>Вставка</a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" data-toggle="modal" data-target="#info-modal">Інфо</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-5 text-center">
+				<h2 id="sort-title"></h2>
+				<p id="sort-description"></p>
+			</div>
+			<div class="col-sm-7 text-center canvas-wrapper">
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="form-group" id="sort-array-generate-form">
+						<form class="input-group">
+							<input type="text" class="form-control" placeholder="Розмір масиву" value="40" id="sort-array-generate-size">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="submit">Згенерувати</button>
+							</span>
+						</form>
+					</div>
+				</div>
+				<canvas id="canvas" width="600" height="400"></canvas>
+				<div class="btn-group">
+					<!-- <button type="button" class="btn btn-default" aria-label="Left Align">
+						<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+					</button> -->
+					<button type="button" class="btn btn-default" aria-label="Center Align" id="sort-play-pause">
+						<span class="glyphicon glyphicon-play" id="sort-play-pause-icon" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-default" aria-label="Justify" id="sort-next-step">
+						<span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+					</button>
+				</div>
+				<div class="btn-group" id="sort-speed">
+					<button type="button" class="btn btn-default" aria-label="Justify" id="sort-speed-decrement">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-default" aria-label="Justify">
+						<span>Швидкість</span>
+					</button>
+					<button type="button" class="btn btn-default" aria-label="Center Align" id="sort-speed-increment">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</div>
+			</div>
 		</div>
 	</div>
+
+	<div class="modal fade" id="info-modal" tabindex="-1" role="dialog" aria-labelledby="info-modalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="info-modalLabel">Інфо</h4>
+				</div>
+				<div class="modal-body">
+					ЛАЛАЛАЛААЛ<br>
+					ЛАЛАЛАЛААЛ<br>
+					ЛАЛАЛАЛААЛ<br>
+					ЛАЛАЛАЛААЛ<br>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<script src="dist/main.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>
