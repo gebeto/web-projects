@@ -22,6 +22,7 @@ const PLAY_STATE = {
 
 const titleBlock = document.querySelector("#sort-title")
 const descriptionBlock = document.querySelector("#sort-description")
+const complexityBlock = document.querySelector("#sort-complexity")
 
 const arraySizeInput = document.querySelector("#sort-array-generate-size");
 document.querySelector("#sort-array-generate-form").addEventListener("submit", function(e) {
@@ -96,8 +97,10 @@ document.getElementById("buttons").addEventListener("click", function(e) {
 
 	const sortTitle = e.target.getAttribute("data-title");
 	const sortDescription = e.target.getAttribute("data-description");
+	const sortComplexity = e.target.getAttribute("data-complexity");
 	titleBlock.textContent = sortTitle;
 	descriptionBlock.textContent = sortDescription;
+	complexityBlock.textContent = "Складність: " + sortComplexity;
 
 	const sortType = e.target.getAttribute("data-sort");
 	init(sortType);
