@@ -5,6 +5,8 @@ import * as Sort from './sort/';
 let SORT_TYPE = null;
 let ARRAY_SIZE = 40;
 let SPEED = 100;
+const PADDING_LEFT = 30;
+const PADDING_BOTTOM = 30;
 
 let PLAY = false;
 const PLAY_STATE = {
@@ -120,15 +122,27 @@ document.querySelector("a[data-title]").click();
 })();
 
 
-
 function drawArrayBase(arr) {
 	ctx.clearRect(0, 0, w, h);
 
-	const barWidth = w / arr.length;
-	const barHeightGrad = h / Math.max.apply(null, arr);
+	const barWidth = (w - PADDING_LEFT) / arr.length;
+	const barHeightGrad = (h - PADDING_BOTTOM) / Math.max.apply(null, arr);
+
+	ctx.fillStyle = "red";
+	ctx.fillRect(PADDING_LEFT - 2, 0, 2, canvas.height);
+	ctx.textAlign = "left"
+	for (let i = 0; i < 11; i++) {
+		ctx.fillText((10 - i) * 10, 0, (canvas.height - PADDING_BOTTOM) / 10 * i);
+	}
+	ctx.fillRect(0, canvas.height - PADDING_BOTTOM, canvas.width, 2);
+	ctx.textAlign = "center"
+	for (let i = 0; i < ARRAY_SIZE; i++) {
+		ctx.fillText(i + 1, PADDING_LEFT + (i * barWidth) + barWidth / 2, canvas.height - 10);
+	}
+	ctx.fillStyle = "black";
 
 	arr.forEach(function(el, index) {
-		ctx.fillRect(barWidth * index, h, barWidth, -barHeightGrad * el);
+		ctx.fillRect(PADDING_LEFT + barWidth * index, h - PADDING_BOTTOM, barWidth, -barHeightGrad * el);
 	});
 }
 
@@ -136,12 +150,26 @@ function drawArray(arr) {
 	ctx.clearRect(0, 0, w, h);
 	const sortingState = sort.next();
 
-	const barWidth = w / arr.length;
-	const barHeightGrad = h / Math.max.apply(null, arr);
+	const barWidth = (w - PADDING_LEFT) / arr.length;
+	const barHeightGrad = (h - PADDING_BOTTOM) / Math.max.apply(null, arr);
+
+	const maxEl = Math.max.apply(null, arr);
+	ctx.fillStyle = "red";
+	ctx.fillRect(PADDING_LEFT - 2, 0, 2, canvas.height);
+	ctx.textAlign = "left"
+	for (let i = 0; i < 11; i++) {
+		ctx.fillText((10 - i) * 10, 0, (canvas.height - PADDING_BOTTOM) / 10 * i);
+	}
+	ctx.fillRect(0, canvas.height - PADDING_BOTTOM, canvas.width, 2);
+	ctx.textAlign = "center"
+	for (let i = 0; i < ARRAY_SIZE; i++) {
+		ctx.fillText(i + 1, PADDING_LEFT + (i * barWidth) + barWidth / 2, canvas.height - 10);
+	}
+	ctx.fillStyle = "black";
 
 	arr.forEach(function(el, index) {
 		ctx.fillStyle = getColor(sortingState, index);
-		ctx.fillRect(barWidth * index, h, barWidth, -barHeightGrad * el);
+		ctx.fillRect(PADDING_LEFT + barWidth * index, h - PADDING_BOTTOM, barWidth, -barHeightGrad * el);
 	});
 
 	if (sortingState.done) {
