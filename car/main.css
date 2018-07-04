@@ -22,23 +22,19 @@ body {
 }
 
 .wheel-left-wrapper {
-	position: absolute;
-	height: 59px;
-	width: 59px;
 	left: 72px;
-	bottom: 56px;
 }
 
 .wheel-right-wrapper {
-	position: absolute;
-	height: 59px;
-	width: 59px;
 	left: 327px;
-	bottom: 56px;
 }
 
 
 .wheel-image {
+	position: absolute;
+	height: 59px;
+	width: 59px;
+	bottom: 56px;
 	transform: rotateZ(0deg);
 	transition-duration: 3s;
 }
