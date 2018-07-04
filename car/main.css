@@ -21,20 +21,23 @@ body {
 	margin-left: 0px;
 }
 
-.wheel-left-wrapper {
+.wheel-wrapper {
+	position: absolute;
+	height: 59px;
+	width: 59px;
+	bottom: 56px;
+}
+
+.wheel-wrapper.left {
 	left: 72px;
 }
 
-.wheel-right-wrapper {
+.wheel-wrapper.right {
 	left: 327px;
 }
 
 
 .wheel-image {
-	position: absolute;
-	height: 59px;
-	width: 59px;
-	bottom: 56px;
 	transform: rotateZ(0deg);
 	transition-duration: 3s;
 }
