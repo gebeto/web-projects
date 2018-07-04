@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Car</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="car-wrapper" id="car">
+			<img class="car-image" width="450" src="car.png">
+			<div class="wheel-left-wrapper" left="72">
+				<img class="wheel-image wheel-left-image" width="59" src="wheel-left.png">
+			</div>
+			<div class="wheel-right-wrapper" left="327">
+				<img class="wheel-image wheel-right-image" width="59" src="wheel-right.png">
+			</div>
+		</div>
+		<button id="go">GO!</button>
+	</div>
+
+	<script>
+		var carWrapper = document.querySelector(".car-wrapper");
+		document.querySelector("#go").addEventListener("click", function() {
+			console.log(carWrapper)
+			if (carWrapper.className === "car-wrapper active") {
+				carWrapper.className = "car-wrapper";
+			} else {
+				carWrapper.className = "car-wrapper active";
+			}
+		});
+	</script>
+</body>
+</html>

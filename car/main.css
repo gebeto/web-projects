@@ -1,0 +1,49 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+	width: 450px;
+	overflow: hidden;
+}
+
+
+.car-wrapper {
+	position: relative;
+	width: 450px;
+	height: 250px;
+	padding: 0px;
+	margin-left: 450px;
+	transition-duration: 3s;
+}
+.car-wrapper.active {
+	margin-left: 0px;
+}
+
+.wheel-left-wrapper {
+	position: absolute;
+	height: 59px;
+	width: 59px;
+	left: 72px;
+	bottom: 56px;
+}
+
+.wheel-right-wrapper {
+	position: absolute;
+	height: 59px;
+	width: 59px;
+	left: 327px;
+	bottom: 56px;
+}
+
+
+.wheel-image {
+	transform: rotateZ(0deg);
+	transition-duration: 3s;
+}
+
+.car-wrapper.active .wheel-image {
+	transform: rotateZ(-720deg);
+}
+
