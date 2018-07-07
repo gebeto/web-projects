@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Akella</title>
+	<link rel="stylesheet" href="src/assets/styles.css">
+</head>
+<body>
+	
+	<!-- <div class="root">
+		<div class="akella__wrapper">
+			<img class="akella__background" src="src/assets/template.png">
+			<div class="akella__left-text">Hello</div>
+			<div class="akella__right-text">World</div>
+		</div>
+	</div> -->
+	<div style="display: none;" class="assets">
+		<img id="template" src="src/assets/template.png">
+		<img id="example" src="src/assets/example.png">
+	</div>
+
+	<canvas style="border: 1px solid red; width: 400px;" id="akella"></canvas>
+	
+	<script>
+		var templateImage = document.getElementById("template");
+		var exampleImage = document.getElementById("example");
+
+		var canvas = document.getElementById("akella");
+		var w = canvas.width = templateImage.width;
+		var h = canvas.height = templateImage.height;
+
+		var ctx = canvas.getContext("2d");
+
+		ctx.fillRect(0, 0, 100, 100);
+
+		function drawLeftText(text) {
+			var horizontalMiddle = 555;
+			var fontSize = 120;
+			var horizontalMiddleCalculated = horizontalMiddle + fontSize / 2.6;
+
+			ctx.save();
+
+			ctx.translate(400, horizontalMiddleCalculated);
+			ctx.rotate(- Math.PI / 13.5);
+
+			ctx.font = fontSize + 'px AvenirNext';
+			ctx.textAlign = 'center';
+			ctx.fillStyle = '#FFFFFF';
+			ctx.fillText(text, 0, 0);
+
+			ctx.restore();
+		}
+
+		function drawRightText(text) {
+			var horizontalMiddle = 505;
+			var fontSize = 120;
+			var horizontalMiddleCalculated = horizontalMiddle + fontSize / 2.6;
+
+			ctx.save();
+
+			ctx.translate(1000, horizontalMiddleCalculated);
+			ctx.rotate(- Math.PI / 13.5);
+
+			ctx.font = fontSize + 'px AvenirNext';
+			ctx.textAlign = 'center';
+			ctx.fillStyle = '#FFFFFF';
+			ctx.fillText(text, 0, 0);
+
+			ctx.restore();
+		}
+
+		window.addEventListener('DOMContentLoaded', function() {
+			console.log('Loaded', templateImage, exampleImage);
+
+			// ctx.drawImage
+			ctx.drawImage(templateImage, 0, 0);
+			drawLeftText('Hello world');
+			drawRightText('Slavik');
+
+			// ctx.fillRect(400, 555, 100, 100);
+
+		});
+	</script>
+</body>
+</html>
