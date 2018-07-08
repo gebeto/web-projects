@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "webpack --mode development",
     "watch": "npm run dev -- --watch",
-    "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +14,7 @@
     "@types/html2canvas": "^0.0.33",
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
+    "@types/redux": "^3.6.0",
     "awesome-typescript-loader": "^5.2.0",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
@@ -26,6 +26,8 @@
   "dependencies": {
     "html2canvas": "^1.0.0-alpha.12",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
   }
 }

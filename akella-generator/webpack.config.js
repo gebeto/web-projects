@@ -7,11 +7,22 @@ const config = {
 		filename: "bundle.js",
 	},
 
+	resolve: {
+		extensions: [".css", ".ts", ".tsx", ".js", ".jsx"],
+	},
+
 	module: {
 		rules: [
 			{
-				test: /\.ts$/,
-				loader: "awesome-typescript-loader",
+				test: /\.tsx?$/,
+				loaders: [
+					{
+						loader: "awesome-typescript-loader",
+						options: {
+							configFileName: "tsconfig.json"
+						}
+					}
+				],
 			},
 			{
 				test: /\.css$/,
