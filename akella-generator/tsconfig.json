@@ -6,10 +6,10 @@
         "module": "commonjs",
         "lib": ["es6", "dom"],
         "target": "es5",
-        "jsx": "react",
-        "baseUrl": "."
+        "jsx": "react"
+        // "baseUrl": "."
     },
-    "include": [
-        "./src/**/*"
-    ]
+    // "include": [
+    //     "./src/**/*"
+    // ]
 }

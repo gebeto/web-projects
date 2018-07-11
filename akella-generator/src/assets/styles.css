@@ -12,30 +12,3 @@ body {
 	font-family: PressStart2P;
 	src: url(PressStart2P.ttf);
 }
-
-
-.akella__wrapper {
-	position: relative;
-	width: 300px;
-}
-.akella__wrapper * {
-	position: absolute;
-}
-
-.akella__background {
-	width: 100%;
-	top: 0px;
-	left: 0px;
-}
-
-.akella__left-text {
-	color: #FFFFFF;
-	font-size: 30px;
-	font-family: AvenirNext;
-}
-
-.akella__right-text {
-	color: #FFFFFF;
-	font-size: 30px;
-	font-family: AvenirNext;
-}

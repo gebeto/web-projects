@@ -12,7 +12,7 @@ const config = {
 	},
 
 	resolve: {
-		extensions: [".css", ".ts", ".tsx", ".js", ".jsx"],
+		extensions: [".css", ".ts", ".tsx", ".js", ".jsx", ".png", ".ttf"],
 	},
 
 	module: {
