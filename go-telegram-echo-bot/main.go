@@ -1,31 +1,49 @@
 package main
 
 import (
-	"fmt";
-	"time";
-	"net/http";
-	"encoding/json";
-);
+    "fmt"		// пакет для форматированного ввода вывода
+    "net/http"	// пакет для поддержки HTTP протокола
+    "strings"	// пакет для работы с  UTF-8 строками
+    "log"		// пакет для логирования
+)
 
-type TTest struct {
-	error string
+func HomeRouterHandler(w http.ResponseWriter, r *http.Request) {
+    r.ParseForm()							//анализ аргументов,
+    fmt.Println(r.Form)						// ввод информации о форме на стороне сервера
+    fmt.Println("path", r.URL.Path)
+    fmt.Println("scheme", r.URL.Scheme)
+    fmt.Println(r.Form["url_long"])
+    for k, v := range r.Form {
+        fmt.Println("key:", k)
+        fmt.Println("val:", strings.Join(v, ""))
+    }
+    fmt.Fprintf(w, "Hello Maksim!")			// отправляем данные на клиентскую сторону
 }
 
-var myClient = &http.Client{Timeout: 10 * time.Second}
+func AboutRouterHandler(w http.ResponseWriter, r *http.Request) {
+    r.ParseForm()							//анализ аргументов,
+    fmt.Println(r.Form)						// ввод информации о форме на стороне сервера
+    fmt.Println("path", r.URL.Path)
+    fmt.Println("scheme", r.URL.Scheme)
+    fmt.Println(r.Form["url_long"])
+    for k, v := range r.Form {
+        fmt.Println("key:", k)
+        fmt.Println("val:", strings.Join(v, ""))
+    }
+    fmt.Fprintf(w, "About Maksim!")			// отправляем данные на клиентскую сторону
+}
 
-func getJson(url string, target interface{}) error {
-	r, err := myClient.Get(url)
-	if err != nil {
-		return err
-	}
-	defer r.Body.Close()
-	fmt.Println("OK")
-
-	return json.NewDecoder(r.Body).Decode(target)
+func WebhookRouterHandler(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	fmt.Println(r.Form)
 }
 
 func main() {
-	foo1 := TTest{}
-	getJson("https://api.lyrics.ovh/v1/artist/title", &foo1)
-	// fmt.Println(foo1)
+    http.HandleFunc("/", HomeRouterHandler) // установим роутер
+    http.HandleFunc("/about", AboutRouterHandler) // установим роутер
+    http.HandleFunc("/webhook", AboutRouterHandler) // установим роутер
+    err := http.ListenAndServe(":9000", nil)// задаем слушать порт
+    if err != nil {
+        log.Fatal("ListenAndServe: ", err)
+    }
 }
