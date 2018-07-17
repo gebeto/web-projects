@@ -5,7 +5,8 @@
   "main": "./dist/module.bundle.js",
   "types": "./index.d.ts",
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "test": "echo ok"
   },
   "author": "gebeto <slavik.nychkalo@gmail.com>",
   "license": "ISC",
