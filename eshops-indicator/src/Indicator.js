@@ -266,15 +266,8 @@ function getColorFromRange(val) {
 	var r = Interpolate(startColors.r, endColors.r, 50, val);
 	var g = Interpolate(startColors.g, endColors.g, 50, val);
 	var b = Interpolate(startColors.b, endColors.b, 50, val);
-	return clr = "rgb(" + r + "," + g + "," + b + ")"
+	return "rgb(" + r + "," + g + "," + b + ")";
 }
 
 
-// var allCanvases = document.querySelectorAll('#indicatorjs');
-// for(var i = 0; i < allCanvases.length; i++) {
-//   var indicator = new ManagerIndicator(allCanvases[i])
-//   indicator.draw();
-// }
-
-
-export default ManagerIndicator;
+module.exports = ManagerIndicator;
