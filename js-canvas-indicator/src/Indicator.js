@@ -1,6 +1,13 @@
 
 
 function ManagerIndicator(canvas) {
+  this.config = {
+    previous: canvas.dataset.previous || config.previous,
+    current: canvas.dataset.current || config.current,
+    title: canvas.dataset.title || config.title,
+    size: canvas.dataset.size || config.size,
+  };
+
 //  this.startGradientAngle = Math.PI - (Math.PI / 4);
   this.startGradientAngle = Math.PI + Math.PI / 8;
   this.endGradientAngle = Math.PI + Math.PI / 2 + Math.PI / 20;
@@ -15,7 +22,7 @@ function ManagerIndicator(canvas) {
   this.gradientLength = Math.abs((this.startGradientAngle - this.endGradientAngle) * 100);
   
   this.canvas = canvas;
-  this.size = this.canvas.dataset.size;
+  this.size = this.canvas.width;
   this.canvas.width = this.size;
   this.canvas.height = this.size;
 
@@ -24,10 +31,10 @@ function ManagerIndicator(canvas) {
   this.indicatorLineWidth = this.indicatorRadius / 2;
   this.ctx.translate(this.size / 2, this.size / 2);
   this.min = 0;
-  this.previous = parseFloat(this.canvas.dataset.previous);
+  this.previous = parseFloat(this.config.previous);
   this.max = this.previous * 2;
-  this.current = parseFloat(this.canvas.dataset.current);
-  this.indicatorTitle = this.canvas.dataset.title.split(' ');
+  this.current = parseFloat(this.config.current);
+  this.indicatorTitle = this.config.title.split(' ');
   
   this.minPosY = Math.sin(this.startRedAngle) * (this.indicatorRadius) - this.size / 15.8;
   
