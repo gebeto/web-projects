@@ -1,6 +1,6 @@
 
 
-function ManagerIndicator(canvas) {
+function ManagerIndicator(canvas, config) {
   this.config = {
     previous: canvas.dataset.previous || config.previous,
     current: canvas.dataset.current || config.current,

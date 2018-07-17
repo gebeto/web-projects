@@ -13,37 +13,55 @@
 			data-title="Василий Пупкин"></canvas>
 
 	<canvas id="indicatorjs" 
-			data-size="400" 
-			data-current="-150" 
-			data-previous="400" 
-			data-title="Василий Пупкин"></canvas>
-
-	<canvas id="indicatorjs" 
-			data-size="400" 
-			data-current="150" 
-			data-previous="400" 
-			data-title="Василий Пупкин"></canvas>
-
-	<canvas id="indicatorjs" 
-			data-size="400" 
-			data-current="550" 
-			data-previous="400" 
-			data-title="Василий Пупкин"></canvas>
-
-	<canvas id="indicatorjs" 
-			data-size="300" 
-			data-current="200" 
-			data-previous="300" 
-			data-title="Василий Пупкин"></canvas>
-
-	<canvas id="indicatorjs" 
 			data-size="200" 
 			data-current="100" 
 			data-previous="200" 
 			data-title="Василий Пупкин"></canvas>
 
+	<canvas id="test1" width="200"></canvas>
+	<canvas id="test2" width="300"></canvas>
+	<canvas id="test3" width="250"></canvas>
+	<canvas id="test4" width="100"></canvas>
+
 
 	<script src="src/Indicator.js"></script>
+	<script type="text/javascript">
+		var indicator = new ManagerIndicator(document.getElementById("test1"), {
+			size: "400",
+			current: "-150",
+			previous: "400",
+			title: "Василий Пупкин",
+		});
+  		indicator.draw();
+  		var indicator = new ManagerIndicator(document.getElementById("test2"), {
+			size: "400",
+			current: "150",
+			previous: "400",
+			title: "Василий Пупкин",
+		});
+  		indicator.draw();
+		
+		var indicator = new ManagerIndicator(document.getElementById("test3"), {
+			size: "400",
+			current: "550",
+			previous: "400",
+			title: "Василий Пупкин",
+		});
+  		indicator.draw();
+		
+		var indicator = new ManagerIndicator(document.getElementById("test4"), {
+			size: "300",
+			current: "200",
+			previous: "300",
+			title: "Василий Пупкин",
+		});
+  		indicator.draw();
+
+
+
+
+		
+	</script>
 
 	</body>
 </html>
