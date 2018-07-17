@@ -1,0 +1,11 @@
+{
+  "name": "eshops-indicator",
+  "version": "1.0.0",
+  "description": "Eshop indicator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gebeto <slavik.nychkalo@gmail.com>",
+  "license": "ISC"
+}
