@@ -1,5 +1,4 @@
 export interface ManagerIndicatorConfig {
-	size: number;
 	current: number;
 	previous: number;
 	title: string;

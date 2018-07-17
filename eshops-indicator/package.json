@@ -1,14 +1,21 @@
 {
   "name": "eshops-indicator",
-  "version": "1.0.5",
-  "description": "Eshop indicator",
-  "main": "src/Indicator.js",
+  "version": "1.0.6",
+  "description": "Eshops indicator",
+  "main": "dist/module.bundle.js",
+  "types": "./index.d.ts",
   "scripts": {
+    "build": "webpack --mode production",
     "test": ""
   },
   "author": "gebeto <slavik.nychkalo@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^2.9.2"
+    "awesome-typescript-loader": "^5.2.0",
+    "typescript": "^2.9.2",
+    "uglify-js": "^3.4.5",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8"
   }
 }
