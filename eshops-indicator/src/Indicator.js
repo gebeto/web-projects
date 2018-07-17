@@ -270,4 +270,4 @@ function getColorFromRange(val) {
 }
 
 
-module.exports = ManagerIndicator;
+export default ManagerIndicator;
