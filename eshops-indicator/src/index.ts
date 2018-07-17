@@ -1,3 +1,2 @@
 import Indicator from './Indicator';
-
-export default Indicator;
+(window as any).EshopsIndicator = Indicator;

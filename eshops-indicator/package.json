@@ -5,7 +5,9 @@
   "main": "./dist/module.bundle.js",
   "types": "./index.d.ts",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "npm run lib && npm run cdn",
+    "cdn": "webpack --mode production",
+    "lib": "rm -rf ./lib && tsc",
     "test": "echo ok"
   },
   "author": "gebeto <slavik.nychkalo@gmail.com>",
