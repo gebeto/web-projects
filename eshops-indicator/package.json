@@ -1,8 +1,8 @@
 {
   "name": "eshops-indicator",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Eshops indicator",
-  "main": "./dist/module.bundle.js",
+  "main": "./lib/index.js",
   "types": "./index.d.ts",
   "scripts": {
     "build": "npm run lib && npm run cdn",
