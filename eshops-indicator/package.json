@@ -1,6 +1,6 @@
 {
   "name": "eshops-indicator",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Eshops indicator",
   "main": "dist/module.bundle.js",
   "types": "./index.d.ts",
