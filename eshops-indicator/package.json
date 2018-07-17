@@ -8,6 +8,7 @@
     "build": "npm run lib && npm run cdn",
     "cdn": "webpack --mode production",
     "lib": "rm -rf ./lib && tsc",
+    "prepublish": "npm run build",
     "test": "echo ok"
   },
   "author": "gebeto <slavik.nychkalo@gmail.com>",
