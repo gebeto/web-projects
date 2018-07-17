@@ -1,8 +1,8 @@
 {
   "name": "eshops-indicator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Eshop indicator",
-  "main": "index.js",
+  "main": "src/Indicator.js",
   "scripts": {
     "test": ""
   },
