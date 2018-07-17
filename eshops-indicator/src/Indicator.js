@@ -1,5 +1,3 @@
-
-
 function ManagerIndicator(canvas, config) {
   this.config = {
     previous: canvas.dataset.previous || config.previous,
@@ -272,9 +270,11 @@ function getColorFromRange(val) {
 }
 
 
+// var allCanvases = document.querySelectorAll('#indicatorjs');
+// for(var i = 0; i < allCanvases.length; i++) {
+//   var indicator = new ManagerIndicator(allCanvases[i])
+//   indicator.draw();
+// }
 
-var allCanvases = document.querySelectorAll('#indicatorjs');
-for(var i = 0; i < allCanvases.length; i++) {
-  var indicator = new ManagerIndicator(allCanvases[i])
-  indicator.draw();
-}
+
+export default ManagerIndicator;
