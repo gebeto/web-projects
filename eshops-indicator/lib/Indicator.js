@@ -35,18 +35,21 @@ var Indicator = /** @class */ (function () {
     }
     Indicator.prototype.getPercentDifference = function () {
         var result = {};
-        var up = (this.previous - this.current) < 0 ? true : false;
+        var directionNumber = this.previous - this.current;
         var difference = Math.abs(this.previous - this.current);
         var percents = Math.round(difference / (this.previous / 100) * 10) / 10;
-        if (up) {
-            // 'up';
+        if (directionNumber < 0) {
             result.text = '⬆ ' + percents + '%';
             result.color = '#008800';
         }
-        else {
-            // 'down';
+        else if (directionNumber > 0) {
             result.text = '⬇ ' + percents + '%';
             result.color = '#ff0000';
+        }
+        else {
+            result.text = '● 0%';
+            result.color = '#000000';
+            // result.color = '#008800';
         }
         return result;
     };

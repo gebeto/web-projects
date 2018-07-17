@@ -1,10 +1,10 @@
-export interface ManagerIndicatorConfig {
+export interface IndicatorConfig {
 	current: number;
 	previous: number;
 	title: string;
 }
 
-export default class ManagerIndicator {
-	constructor(canvas: HTMLCanvasElement, config: ManagerIndicatorConfig);
+export default class Indicator {
+	constructor(canvas: HTMLCanvasElement, config: IndicatorConfig);
 	draw();
 }
