@@ -1,0 +1,28 @@
+.test {
+	transition-duration: 300ms;
+	transform: translateX(10px);
+	opacity: 0.0;
+}
+
+
+
+.test-enter-active {
+	opacity: 1.0;
+	transform: translateX(0px);
+}
+
+.test-enter-done {
+	opacity: 1.0;
+	transform: translateX(0px);
+}
+
+
+.test-exit-active {
+	opacity: 0.0;
+	transform: translateX(10px);
+}
+
+.test-exit-done {
+	opacity: 0.0;
+	transform: translateX(10px);
+}
