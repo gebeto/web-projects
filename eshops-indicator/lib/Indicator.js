@@ -7,6 +7,7 @@ var Indicator = /** @class */ (function () {
             previous: canvas.dataset.previous || config.previous,
             current: canvas.dataset.current || config.current,
             title: canvas.dataset.title || config.title,
+            processPercentage: config.processPercentage || (function (str) { return str; }),
         };
         //  this.startGradientAngle = Math.PI - (Math.PI / 4);
         this.startGradientAngle = Math.PI + Math.PI / 8;
@@ -39,17 +40,16 @@ var Indicator = /** @class */ (function () {
         var difference = Math.abs(this.previous - this.current);
         var percents = Math.round(difference / (this.previous / 100) * 10) / 10;
         if (directionNumber < 0) {
-            result.text = '⬆ ' + percents + '%';
+            result.text = '⬆ ' + this.config.processPercentage(percents) + '%';
             result.color = '#008800';
         }
         else if (directionNumber > 0) {
-            result.text = '⬇ ' + percents + '%';
+            result.text = '⬇ ' + this.config.processPercentage(percents) + '%';
             result.color = '#ff0000';
         }
         else {
             result.text = '● 0%';
             result.color = '#000000';
-            // result.color = '#008800';
         }
         return result;
     };
