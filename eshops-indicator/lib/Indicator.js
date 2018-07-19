@@ -4,9 +4,10 @@ var addons_1 = require("./addons");
 var Indicator = /** @class */ (function () {
     function Indicator(canvas, config) {
         this.config = {
-            previous: canvas.dataset.previous || config.previous,
-            current: canvas.dataset.current || config.current,
-            title: canvas.dataset.title || config.title,
+            previous: canvas.dataset.previous === undefined ? config.previous : canvas.dataset.previous,
+            current: canvas.dataset.current === undefined ? config.current : canvas.dataset.current,
+            title: canvas.dataset.title === undefined ? config.title : canvas.dataset.title,
+            drawRange: canvas.dataset.drawRange === undefined ? (config.drawRange === undefined ? true : config.drawRange) : canvas.dataset.drawRange,
             processPercentage: config.processPercentage || (function (str) { return str; }),
         };
         //  this.startGradientAngle = Math.PI - (Math.PI / 4);
@@ -60,7 +61,9 @@ var Indicator = /** @class */ (function () {
         this.drawBackground();
         this.drawArrow();
         this.drawMiddleText();
-        this.drawRangeText();
+        if (this.config.drawRange) {
+            this.drawRangeText();
+        }
         this.drawPercentArrows();
     };
     Indicator.prototype.drawBackground = function () {
