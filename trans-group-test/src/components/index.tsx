@@ -3,15 +3,18 @@ import { connect } from 'react-redux';
 
 
 import { AnimatedTitle } from './AnimatedTitle/';
+import UsersList from './UsersList/';
 
 
 export class App extends React.Component<any, any> {
 	render() {
 		return (
 			<div>
-				<button onClick={this.props.nextUser}>Toggle</button>
-				<AnimatedTitle text={this.props.user.first_name} />
-				<AnimatedTitle text={this.props.user.last_name} />
+				<UsersList />
+				<h1 style={{textAlign: 'center'}}>
+					<AnimatedTitle text={this.props.user.first_name} />
+					<AnimatedTitle text={this.props.user.last_name} />
+				</h1>
 			</div>
 		);
 	}
