@@ -2,6 +2,7 @@ export interface IndicatorConfig {
 	current: number;
 	previous: number;
 	title: string;
+	drawRange?: boolean;
 	processPercentage?: (percents: number) => any;
 }
 
