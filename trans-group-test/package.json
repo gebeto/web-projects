@@ -1,0 +1,38 @@
+{
+  "name": "trans-group-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve:h": "webpack-dev-server --mode development --host 0.0.0.0",
+    "serve": "webpack-dev-server --mode development",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "watch": "npm run dev -- --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.21.0",
+    "typescript": "^2.9.2",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "@types/react": "^16.4.6",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-redux": "^6.0.4",
+    "@types/react-transition-group": "^2.0.11",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "react-transition-group": "^2.4.0",
+    "redux": "^4.0.0"
+  }
+}
