@@ -10,7 +10,23 @@
 }
 
 .users-list .user {
+	position: relative;
 	list-style: none;
 	padding: 20px;
 	cursor: pointer;
+	box-sizing: border-box;
+}
+.users-list .user:after {
+	content: " ";
+	height: 2px;
+	width: 0%;
+	background: #000;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	transition-duration: 1s;
+	transition-timing-function: ease-in-out;
+}
+.users-list .user.active:after {
+	width: 100%;
 }

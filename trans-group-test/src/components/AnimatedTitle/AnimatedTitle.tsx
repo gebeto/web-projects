@@ -1,11 +1,16 @@
 import * as React from 'react';
-
 import { CSSTransition } from 'react-transition-group';
-
-import './styles.css';
 
 
 export class AnimatedTitle extends React.Component<any, any> {
+
+	static defaultProps = {
+		duration: 300,
+	};
+
+	styles = {
+		transitionDuration: '300ms',
+	};
 
 	constructor(props: any) {
 		super(props);
@@ -14,6 +19,8 @@ export class AnimatedTitle extends React.Component<any, any> {
 			shown: false,
 			text: props.text,
 		}
+
+		this.styles.transitionDuration = `${this.props.duration}ms`;
 	}
 
 	componentDidMount() {
@@ -39,8 +46,8 @@ export class AnimatedTitle extends React.Component<any, any> {
 
 	render() {
 		return (
-			<CSSTransition timeout={300} classNames="test" in={this.state.shown} onExited={this.onExited}>
-				<div className="test name">{this.state.text}</div>
+			<CSSTransition timeout={this.props.duration} classNames="animated-text" in={this.state.shown} onExited={this.onExited}>
+				<div style={this.styles} className="animated-text name">{this.state.text}</div>
 			</CSSTransition>
 		);
 	}

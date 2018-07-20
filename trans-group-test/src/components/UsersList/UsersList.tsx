@@ -11,7 +11,7 @@ export class UsersList extends React.Component<any, any> {
 		return (
 			<ul className="users-list">
 				{this.props.users.map((user: any, index: number) => 
-					<ConnectedUser key={user.id} user={user} index={index} />
+					<ConnectedUser key={user.id} user={user} index={index} active={index === this.props.activeIndex} />
 				)}
 			</ul>
 		);
