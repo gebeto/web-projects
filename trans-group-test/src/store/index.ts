@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 
 const initialState = {
-	currentUserIndex: 0,
+	currentUserIndex: -1,
 	users: [
 		{
 			id: 0,

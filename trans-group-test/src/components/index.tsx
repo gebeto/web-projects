@@ -11,10 +11,12 @@ export class App extends React.Component<any, any> {
 		return (
 			<div>
 				<UsersList />
-				<h1 style={{textAlign: 'center'}}>
-					<AnimatedTitle text={this.props.user.first_name} />
-					<AnimatedTitle text={this.props.user.last_name} />
-				</h1>
+				{this.props.user ?
+					<h1 style={{textAlign: 'center'}}>
+						<AnimatedTitle text={this.props.user.first_name} duration={1000} />
+						<AnimatedTitle text={this.props.user.last_name} duration={1300} />
+					</h1> : null
+				}
 			</div>
 		);
 	}

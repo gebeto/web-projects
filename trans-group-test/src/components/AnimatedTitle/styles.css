@@ -1,28 +1,56 @@
-.test {
+.animated-text {
 	transition-duration: 300ms;
 	transform: translateX(10px);
 	opacity: 0.0;
 }
 
 
-
-.test-enter-active {
+.animated-text-enter-active {
 	opacity: 1.0;
 	transform: translateX(0px);
 }
 
-.test-enter-done {
+.animated-text-enter-done {
 	opacity: 1.0;
 	transform: translateX(0px);
 }
 
 
-.test-exit-active {
+.animated-text-exit-active {
 	opacity: 0.0;
 	transform: translateX(10px);
 }
 
-.test-exit-done {
+.animated-text-exit-done {
 	opacity: 0.0;
 	transform: translateX(10px);
+}
+
+
+.animated-text-from-top {
+	transition-duration: 300ms;
+	transform: translateY(-10px);
+	opacity: 0.0;
+}
+
+
+.animated-text-from-top-enter-active {
+	opacity: 1.0;
+	transform: translateY(0px);
+}
+
+.animated-text-from-top-enter-done {
+	opacity: 1.0;
+	transform: translateY(0px);
+}
+
+
+.animated-text-from-top-exit-active {
+	opacity: 0.0;
+	transform: translateY(-10px);
+}
+
+.animated-text-from-top-exit-done {
+	opacity: 0.0;
+	transform: translateY(-10px);
 }
