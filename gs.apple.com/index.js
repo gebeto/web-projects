@@ -27,6 +27,7 @@ app.all(/[\w\W]+/, function (req, res, next) {
 		originalUrl: req.originalUrl,
 		_parsedUrl: req._parsedUrl,
 		body: req.body,
+		body_text: JSON.stringify(req.body),
 		body_plist: req.body.plist,
 		body_dict: req.body.plist.dict,
 	});
