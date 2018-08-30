@@ -1,0 +1,21 @@
+{
+  "name": "react-advanced-select",
+  "version": "1.0.0",
+  "description": "React.js advanced select",
+  "main": "./lib/index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "build": "npm run lib",
+    "lib": "rm -rf ./lib && tsc",
+    "test": "echo ok"
+  },
+  "author": "gebeto <slavik.nychkalo@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^16.4.13",
+    "awesome-typescript-loader": "^5.2.0",
+    "typescript": "^3.0.3",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  }
+}
