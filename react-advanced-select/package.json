@@ -5,7 +5,9 @@
   "keywords": [
     "react",
     "advanced",
-    "select"
+    "select",
+    "typescript",
+    "javascript"
   ],
   "main": "./lib/index.js",
   "types": "./index.d.ts",

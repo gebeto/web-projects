@@ -1,5 +1,6 @@
 interface AdvancedSelectItem {
 	title: string;
+	[key: string]: any;
 }
 
 interface AdvancedSelectProps {
