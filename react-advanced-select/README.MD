@@ -10,7 +10,6 @@ $ npm install react-advanced-select
 
 ## Using
 ```javascript
-const someCode = null;
 import React, { Component } from 'react';
 import AdvancedSelect from 'react-advanced-select';
 
