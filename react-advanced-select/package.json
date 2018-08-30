@@ -2,6 +2,11 @@
   "name": "react-advanced-select",
   "version": "1.0.1",
   "description": "React.js advanced select",
+  "keywords": [
+    "react",
+    "advanced",
+    "select"
+  ],
   "main": "./lib/index.js",
   "types": "./index.d.ts",
   "scripts": {
