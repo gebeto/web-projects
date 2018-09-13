@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gebeto</title>
+	<!-- <link href="https://fonts.googleapis.com/css?family=Fira+Mono:500,700&amp;subset=cyrillic" rel="stylesheet"> -->
+	<link rel="stylesheet" href="Fira_Mono/fonts.css">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	
+	<div class="wrapper">
+		<ul class="categories">
+			<li>
+				<span>Frontend</span>
+			</li>
+			<li>
+				<span>Backend</span>
+			</li>
+		</ul>
+	</div>
+
+	<script>
+		
+		var categories = document.querySelector('.categories').children;
+
+		function setActive(activeIndex) {
+			for (var i = 0; i < categories.length; i++) {
+				var category = categories[i];
+				if (activeIndex === i) {
+					category.className = 'active';
+				} else {
+					category.className = '';
+				}
+			}
+		}
+
+
+	</script>
+
+</body>
+</html>
