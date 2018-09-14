@@ -48,18 +48,25 @@ body {
 	align-items: center;
 	position: relative;
 }
+
 .categories li:before {
 	content: "";
 	position: absolute;
 	background: #FFFFFF;
 	left: 0px;
 	top: 0px;
-	width: 100%;
-	height: 0%;
-	transition-duration: 1s;
-}
-.categories li.active:before {
+	width: 0%;
 	height: 100%;
+	transition-duration: 0.4s;
+}
+
+.categories li:hover:before {
+	width: 100%;
+}
+
+.categories li.active:before {
+	width: 0%;
+	left: 100%;
 }
 
 .categories li span {

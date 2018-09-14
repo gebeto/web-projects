@@ -11,10 +11,10 @@
 	
 	<div class="wrapper">
 		<ul class="categories">
-			<li>
+			<li id="first">
 				<span>Frontend</span>
 			</li>
-			<li>
+			<li id="second">
 				<span>Backend</span>
 			</li>
 		</ul>
@@ -34,6 +34,15 @@
 				}
 			}
 		}
+
+
+		document.getElementById('first').addEventListener('click', function() {
+			setActive(0);
+		});
+
+		document.getElementById('second').addEventListener('click', function() {
+			setActive(1);
+		});
 
 
 	</script>
