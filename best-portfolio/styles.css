@@ -39,7 +39,7 @@ body {
 	z-index: 10001;
 	display: flex;
 	width: 40px;
-	background: red;
+	/*background: red;*/
 	flex-direction: column;
 	height: 100%;
 	justify-content: space-around;
