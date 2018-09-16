@@ -145,11 +145,12 @@ body {
 	position: relative;
 	box-sizing: border-box;
 	width: 100%;
-	min-height: 100vh;
-	overflow-y: scroll;
+	height: 100vh;
+	overflow-y: hidden;
 }
 
 .slide {
+	overflow-y: scroll;
 	box-sizing: border-box;
 	padding: 50px;
 	position: absolute;
