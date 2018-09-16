@@ -24,12 +24,19 @@ body {
 .wrapper {
 	width: 100vw;
 	height: 100vh;
-	background: yellow;
+	/*background: yellow;*/
 	box-sizing: border-box;
+	display: flex;
 }
 
 
-.categories {
+/*
+
+	HEADER
+
+*/
+.header {
+	z-index: 10001;
 	display: flex;
 	width: 40px;
 	background: red;
@@ -38,41 +45,159 @@ body {
 	justify-content: space-around;
 }
 
-.categories li {
+.header li {
 	display: flex;
-	background: #000000;
 	width: 40px;
-	height: 50vh;
+	height: 20vh;
 	text-align: center;
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	transition-duration: 600ms;
+}
+.header li[data-active="1"] {
+	height: 80vh;
 }
 
-.categories li:before {
+.header li:after {
 	content: "";
 	position: absolute;
-	background: #FFFFFF;
-	left: 0px;
-	top: 0px;
-	width: 0%;
-	height: 100%;
-	transition-duration: 0.4s;
-}
-
-.categories li:hover:before {
+	background: #000000;
+	left: 0%;
 	width: 100%;
+	height: 0%;
+	transition-duration: 0.4s;
+
+	background-repeat: no-repeat;
+	background-size: 20px;
 }
 
-.categories li.active:before {
-	width: 0%;
-	left: 100%;
+.header li:hover:after {
+	height: 100%;
+	background-position: center;
 }
 
-.categories li span {
+.header li[data-active="1"]:after {
+	height: 0%;
+	top: 100%;
+}
+
+.header li span {
 	transform: rotateZ(-90deg);
 	line-height: 1em;
-	color: #ffffff;
 	font-size: 14px;
 	letter-spacing: 1px;
+}
+
+.header #frontend {
+	background-color: #FFFFFF;
+}
+.header #frontend:after {
+	background-image: url(assets/frontend-arrow.svg);
+	background-color: #FFFFFF;
+	top: 0%;
+	background-position: center -30px;
+}
+.header #frontend:hover:after {
+	height: 100%;
+	top: 0%;
+	background-position: center;
+}
+.header #frontend[data-active="1"]:after {
+	height: 0%;
+	top: 100%;
+}
+.header #frontend span {
+	color: #000000;
+}
+
+
+
+.header #backend {
+	background-color: #000000;
+}
+.header #backend:after {
+	background-image: url(assets/backend-arrow.svg);
+	background-color: #000000;
+	top: 100%;
+	background-position: center 30px;
+}
+.header #backend:hover:after {
+	height: 100%;
+	top: 0%;
+	background-position: center;
+}
+.header #backend[data-active="1"]:after {
+	height: 0%;
+	top: 0%;
+}
+.header #backend span {
+	color: #FFFFFF;
+}
+
+
+/*
+
+	CONTENT
+
+*/
+.content {
+	position: relative;
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 100vh;
+	overflow-y: scroll;
+}
+
+.slide {
+	box-sizing: border-box;
+	padding: 50px;
+	position: absolute;
+	width: 100%;
+	min-height: 100%;
+	transition-duration: 600ms;
+}
+
+.slide .title {
+	text-align: center;
+	font-size: 110px;
+	line-height: 110px;
+	margin: 0;
+}
+
+.slide[data-active="1"] {
+	left: 0%;
+	z-index: 1000;
+}
+
+.slide[data-active="2"] {
+	left: 0%;
+}
+
+.content .slide.frontend {
+	background-color: #FFFFFF;
+	color: #000000;
+	top: -100%;
+}
+.content .slide.frontend[data-active="1"] {
+	left: 0%;
+	top: 0%;
+}
+.content .slide.frontend[data-active="2"] {
+	left: 0%;
+	top: 0%;
+}
+
+.content .slide.backend {
+	background-color: #000000;
+	color: #FFFFFF;
+	top: 100%;
+}
+.content .slide.backend[data-active="1"] {
+	left: 0%;
+	top: 0%;
+}
+.content .slide.backend[data-active="2"] {
+	left: 0%;
+	top: 0%;
 }

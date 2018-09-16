@@ -10,42 +10,26 @@
 <body>
 	
 	<div class="wrapper">
-		<ul class="categories">
-			<li id="first">
+		<ul class="header">
+			<li id="frontend">
 				<span>Frontend</span>
 			</li>
-			<li id="second">
+			<li id="backend">
 				<span>Backend</span>
 			</li>
 		</ul>
+
+		<div class="content">
+			<div class="slide frontend" data-active="1">
+				<h2 class="title">Frontend</h2>
+			</div>
+			<div class="slide backend" data-active="0">
+				<h2 class="title">Backend</h2>
+				
+			</div>
+		</div>
 	</div>
-
-	<script>
-		
-		var categories = document.querySelector('.categories').children;
-
-		function setActive(activeIndex) {
-			for (var i = 0; i < categories.length; i++) {
-				var category = categories[i];
-				if (activeIndex === i) {
-					category.className = 'active';
-				} else {
-					category.className = '';
-				}
-			}
-		}
-
-
-		document.getElementById('first').addEventListener('click', function() {
-			setActive(0);
-		});
-
-		document.getElementById('second').addEventListener('click', function() {
-			setActive(1);
-		});
-
-
-	</script>
-
+	
+	<script src="main.js"></script>
 </body>
 </html>
