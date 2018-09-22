@@ -1,0 +1,151 @@
+body {
+	padding: 0;
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	/*overflow: hidden;*/
+	box-sizing: border-box;
+}
+
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+	/*overflow: hidden;*/
+	display: flex;
+	flex-direction: row;
+	box-sizing: border-box;
+
+	flex: 1400;
+}
+
+/*
+
+	Menu
+
+*/
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: stretch;
+	flex: 100;
+	height: 100%;
+	background-color: #292F4C;
+	max-width: 100px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	box-sizing: border-box;
+}
+
+.profile {
+	display: flex;
+	justify-content: center;
+}
+
+.profile .avatar {
+	position: relative;
+	background-size: 50px 50px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.profile .avatar .status {
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: 8px;
+	height: 8px;
+	border: solid #292F4C 4px;
+	border-radius: 50%;
+	background: green;
+}
+
+.menu-list {
+	margin: 0;
+	padding: 0;
+}
+
+.menu-list li {
+	position: relative;
+	display: flex;
+	list-style: none;
+	justify-content: center;
+	align-items: center;
+	height: 74px;
+}
+.menu-list li img {
+	opacity: 0.3;
+}
+.menu-list li.active img {
+	opacity: 1;
+}
+
+.menu-list li.active:before {
+	content: " ";
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 50%;
+	height: 100%;
+	background-image: url(images/active-line.png);
+	background-repeat: no-repeat repeat;
+	/*background: linear-gradient(to right, #F04242, #F0424244 8px, #F0424200 20px);*/
+	/*background-size: 100% 28px;*/
+}
+
+.settings {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.settings img {
+	opacity: 0.3;
+}
+
+
+/*
+
+	Dialogues
+
+*/
+
+.dialogues {
+	flex: 447;
+	box-sizing: border-box;
+	/*background-color: red;*/
+	max-width: 447px;
+	width: 447px;
+	padding: 30px;
+	background: linear-gradient(110deg, #FFFFFF, #F8F8F8, #FFFFFF);
+	border-right: solid #aaa 1px;
+}
+
+
+/*
+
+	Chat
+
+*/
+
+.chat {
+	flex: 543;
+	background-color: green;
+}
+
+
+
+/*
+
+	About user
+
+*/
+
+.about {
+	flex: 310;
+	max-width: 310px;
+	background-color: blue;
+}
