@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<p id="message"></p>
+	
+	<input id="input" type="text" value="test">
+	<button id="submit">GO!</button>
+
+	<script>
+		var message = document.getElementById('message');
+		var input = document.getElementById('input');
+		var submit = document.getElementById('submit');
+
+		input.addEventListener('change', function() {
+			localStorage.setItem('message', input.value);
+		});
+
+		window.addEventListener('storage', function(e) {
+			input.value = e.newValue;
+			input.focus();
+			console.log(e);
+		});
+	</script>
+
+</body>
+</html>
