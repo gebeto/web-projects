@@ -1,0 +1,87 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+}
+
+.page {
+	width: 595px;
+	min-height: 842px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	border: 1px solid red;
+	min-height: 842px;
+	padding: 1cm;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.header__title {
+	text-align: center;
+}
+
+.header__logo-wrapper {
+	text-align: center;
+}
+
+.header__logo {
+	/*width: 200px;*/
+	width: 35%;
+}
+
+.header__description {
+	text-align: center;
+}
+
+.header__persons {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.header__footer {
+	text-align: center;
+}
+
+
+
+@media print {
+	*,
+	*:before,
+	*:after,
+	*:first-letter,
+	p:first-line,
+	div:first-line,
+	blockquote:first-line,
+	li:first-line {
+		background: transparent !important;
+		color: #000 !important;
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	.page {
+		width: auto;
+		min-height: auto;
+		margin: 0;
+		box-sizing: initial;
+		padding: 0;
+		border: none;
+		page-break-before: always;
+	}
+
+	.header {
+		min-height: 100vh;
+	}
+
+	@page{
+		margin-left: 1cm;
+		margin-right: 1cm;
+		margin-top: 1cm;
+		margin-bottom: 1cm;
+	}
+}
