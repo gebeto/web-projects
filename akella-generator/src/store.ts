@@ -5,10 +5,13 @@ import thunk from 'redux-thunk';
 
 import { GeneratorReducer } from './compoents/Generator/reducer';
 
+import { reducer as formReducer } from 'redux-form';
+
 
 export const store = createStore(
 	combineReducers({
-		Generator: GeneratorReducer
+		Generator: GeneratorReducer,
+		form: formReducer,
 	}),
 	composeWithDevTools(
 		applyMiddleware(

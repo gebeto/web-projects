@@ -38,30 +38,8 @@ export function drawRightText(ctx, text) {
 	ctx.restore();
 }
 
-
-// window.addEventListener('DOMContentLoaded', function() {
-// 	console.log('Loaded', templateImage, exampleImage);
-
-// 	// ctx.drawImage
-// 	ctx.drawImage(templateImage, 0, 0);
-// 	drawLeftText('Hello world');
-// 	drawRightText('Slavik');
-
-// 	// ctx.fillRect(400, 555, 100, 100);
-
-// });
-
-
-// var templateImage = document.getElementById("template");
-// var exampleImage = document.getElementById("example");
-
-// var canvas = document.getElementById("akella");
-
-// ctx.fillRect(0, 0, 100, 100);
-
 export interface GeneratorProps {
-	left: string,
-	right: string,
+	inputs: any,
 	image: HTMLImageElement,
 	templateImage: HTMLImageElement,
 }
@@ -89,8 +67,10 @@ export default class Generator extends React.Component<GeneratorProps, any> {
 		this.ctx.fillRect(0, 0, this.w, this.h);
 
 		this.ctx.drawImage(this.props.templateImage, 0, 0);
-		drawLeftText(this.ctx, this.props.left);
-		drawRightText(this.ctx, this.props.right);
+		if (this.props.inputs) {
+			drawLeftText(this.ctx, this.props.inputs.values.left);
+			drawRightText(this.ctx, this.props.inputs.values.right);
+		}
 	}
 
 	render() {

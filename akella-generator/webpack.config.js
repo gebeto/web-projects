@@ -1,8 +1,7 @@
 const path = require("path");
+const webpackMerge = require("webpack-merge");
 
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-
+const envConfig = (env) => require(`./configs/webpack.${env}.js`)(env);
 
 const config = {
 	entry: path.resolve(__dirname, "src/index.tsx"),
@@ -53,13 +52,6 @@ const config = {
 		compress: true,
 		port: 9000
 	},
-
-	plugins: [
-		new CleanWebpackPlugin(["dist"]),
-		new HtmlWebpackPlugin({
-			title: "Akella",
-		}),
-	],
 };
 
-module.exports = config;
+module.exports = (env) => webpackMerge(config, envConfig(env));

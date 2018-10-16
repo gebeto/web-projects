@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development",
+    "dev": "webpack --env development",
     "watch": "npm run dev -- --watch",
-    "build": "webpack --mode production",
-    "serve": "webpack-dev-server --mode development"
+    "build": "webpack --env production",
+    "serve": "webpack-dev-server --env development"
   },
   "author": "",
   "license": "ISC",
@@ -26,14 +26,17 @@
     "typescript": "^2.9.2",
     "webpack": "^4.15.1",
     "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "@types/redux-form": "^7.4.9",
     "html2canvas": "^1.0.0-alpha.12",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
+    "redux-form": "^7.4.2",
     "redux-thunk": "^2.3.0"
   }
 }
