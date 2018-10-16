@@ -1,8 +1,7 @@
 import * as React from 'react';
 import './styles.css';
 
-
-export function drawLeftText(ctx, text) {
+function drawLeftText(ctx, text) {
 	var horizontalMiddle = 555;
 	var fontSize = 120;
 	var horizontalMiddleCalculated = horizontalMiddle + fontSize / 2.6;
@@ -20,7 +19,7 @@ export function drawLeftText(ctx, text) {
 	ctx.restore();
 }
 
-export function drawRightText(ctx, text) {
+function drawRightText(ctx, text) {
 	var horizontalMiddle = 505;
 	var fontSize = 120;
 	var horizontalMiddleCalculated = horizontalMiddle + fontSize / 2.6;
@@ -61,15 +60,16 @@ export default class Generator extends React.Component<GeneratorProps, any> {
 	}
 
 	componentDidUpdate() {
+		const { inputs } = this.props;
 		console.log("Update", this.canvas);
 		this.w = this.canvas.width = this.props.templateImage.width;
 		this.h = this.canvas.height = this.props.templateImage.height;
 		this.ctx.fillRect(0, 0, this.w, this.h);
 
 		this.ctx.drawImage(this.props.templateImage, 0, 0);
-		if (this.props.inputs) {
-			drawLeftText(this.ctx, this.props.inputs.values.left);
-			drawRightText(this.ctx, this.props.inputs.values.right);
+		if (inputs) {
+			drawLeftText(this.ctx, inputs.left);
+			drawRightText(this.ctx, inputs.right);
 		}
 	}
 
