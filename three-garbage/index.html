@@ -11,7 +11,7 @@
 	</style>
 </head>
 <body>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.js"></script>
+	<script src="three.js"></script>
 	<script src="obj-loader.js"></script>
 	<script>
 		var container;
@@ -34,7 +34,6 @@
 			camera.position.z = 20;
 
 			// scene
-
 			scene = new THREE.Scene();
 
 			var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
@@ -51,7 +50,7 @@
 				} );
 
 				object.position.y = 0;
-				object.rotation.x = 0.9;
+				object.rotation.x = Math.PI / 90 * 10;
 				object.rotation.y = 1.9;
 				scene.add( object );
 
@@ -79,6 +78,7 @@
 
 			renderer = new THREE.WebGLRenderer();
 			renderer.setPixelRatio( window.devicePixelRatio );
+			// renderer.setSize( window.innerWidth, window.innerHeight );
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			container.appendChild( renderer.domElement );
 
@@ -101,6 +101,8 @@
 		}
 
 		function render() {
+			// object.rotation.y += Math.PI / 100;
+
 			camera.lookAt( scene.position );
 			renderer.render( scene, camera );
 		}
