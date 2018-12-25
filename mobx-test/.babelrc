@@ -1,0 +1,20 @@
+{
+  "presets": [
+  	"@babel/preset-typescript",
+  	"@babel/preset-react",
+  	["@babel/preset-env", {
+  		"targets": {
+			"chrome": "58",
+			"ie": "10"
+		}
+  	}],
+  ],
+  "plugins": [
+  	"@babel/plugin-transform-typescript",
+  	"@babel/plugin-proposal-class-properties",
+    // ["@babel/plugin-proposal-decorators", {
+    //   // "decoratorsBeforeExport": true,
+    //   "legacy": true,
+    // }],
+  ]
+}
