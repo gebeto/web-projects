@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.wrapper {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			align-items: center;
+			height: 100%;
+		}
+
+		#hsv {
+			width: 100px;
+			height: 100px;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div id="hsv"></div>
+		<div class="inputs">
+			<input type="range" id="h" value="0" step="1" max="360" min="0">
+			<input type="range" id="s" value="0" max="100">
+			<input type="range" id="v" value="0" max="100">
+		</div>
+	</div>
+
+	<script>
+		const hsv = document.getElementById('hsv');
+		const h = document.getElementById('h');
+		const s = document.getElementById('s');
+		const v = document.getElementById('v');
+
+		let updateColor = () => {
+			// const color = `background-color: hsl(${h.value}, ${s.value}%, ${v.value}%)`;
+			const color = `hsl(${h.value}, ${s.value}%, ${100 - parseFloat(v.value)}%)`;
+			// hsv.setAttribute('style', color);
+			hsv.style.backgroundColor = color;
+		};
+
+		h.addEventListener('input', updateColor);
+		s.addEventListener('input', updateColor);
+		v.addEventListener('input', updateColor);
+	</script>
+</body>
+</html>
