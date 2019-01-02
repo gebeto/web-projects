@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)http://schteppe.github.io/cannon.js/examples/threejs_fps.html -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>cannon.js + three.js physics shooter</title>
+        <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+            }
+
+            body {
+                background-color: #ffffff;
+                margin: 0;
+                overflow: hidden;
+                font-family: arial;
+            }
+
+            #blocker {
+
+                position: absolute;
+
+                width: 100%;
+                height: 100%;
+
+                background-color: rgba(0,0,0,0.5);
+
+            }
+
+            #instructions {
+
+                width: 100%;
+                height: 100%;
+
+                display: -webkit-box;
+                display: -moz-box;
+                display: box;
+
+                -webkit-box-orient: horizontal;
+                -moz-box-orient: horizontal;
+                box-orient: horizontal;
+
+                -webkit-box-pack: center;
+                -moz-box-pack: center;
+                box-pack: center;
+
+                -webkit-box-align: center;
+                -moz-box-align: center;
+                box-align: center;
+
+                color: #ffffff;
+                text-align: center;
+
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="blocker" style="display: -webkit-box;">
+            <div id="instructions" style="">
+                <span style="font-size:40px">Click to play</span>
+                <br>
+                (W,A,S,D = Move, SPACE = Jump, MOUSE = Look, CLICK = Shoot)
+            </div>
+        </div>
+
+        <canvas width="1424" height="950" style="width: 1424px; height: 950px;"></canvas>
+
+        <script src="dist/bundle.js"></script>
+</body>
+</html>
