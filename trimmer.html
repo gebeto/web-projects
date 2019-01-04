@@ -28,27 +28,39 @@
 		height: 100%;
 		width: 100px;
 	}
+	.group {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		max-width: 100px;
+	}
 	</style>
 </head>
 <body>
 	
-	<textarea placeholder="input" name="input" id="input"></textarea>
-	<button id="process">Process -&gt;</button>
+	<textarea autofocus placeholder="input" name="input" id="input"></textarea>
+	<div class="group">
+		<input type="number" id="separators_count" placeholder="Trim size" value="6">
+		<button id="process">Process -&gt;</button>
+	</div>
 	<textarea placeholder="output" name="output" id="output"></textarea>
 
 
 
 	<script>
+		var separators_count = document.getElementById('separators_count');
 		var input = document.getElementById('input');
 		var output = document.getElementById('output');
 		var submit = document.getElementById('process');
 
 		submit.addEventListener('click', function() {
+			var regex = new RegExp('.{1,' + separators_count.value + '}', 'g')
 			var values = input.value.trim()
 				.split('\n')
 				.map(function(el) {return el.trim()})
-				.reduce(function(res, el) {return res.concat(el.match(/.{1,6}/g))}, []);
+				.reduce(function(res, el) {return res.concat(el.match(regex))}, []);
 			output.value = values.join('\n');
+			output.focus();
 		});
 
 	</script>
