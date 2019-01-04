@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body {
+		margin: 0;
+		padding: 0;
+		background: #eee;
+		display: flex;
+		flex-direction: row;
+		height: 100vh;
+		width: 100vw;
+		flex: 1;
+		padding: 20px;
+		box-sizing: border-box;
+		justify-content: center;
+		align-items: center;
+	}
+	textarea {
+		width: 100%;
+		height: 100%;
+		flex: 1;
+		font-weight: bold;
+	}
+	#process {
+		height: 100%;
+		width: 100px;
+	}
+	</style>
+</head>
+<body>
+	
+	<textarea placeholder="input" name="input" id="input"></textarea>
+	<button id="process">Process -&gt;</button>
+	<textarea placeholder="output" name="output" id="output"></textarea>
+
+
+
+	<script>
+		var input = document.getElementById('input');
+		var output = document.getElementById('output');
+		var submit = document.getElementById('process');
+
+		submit.addEventListener('click', function() {
+			var values = input.value.trim()
+				.split('\n')
+				.map(function(el) {return el.trim()})
+				.reduce(function(res, el) {return res.concat(el.match(/.{1,6}/g))}, []);
+			output.value = values.join('\n');
+		});
+
+	</script>
+	
+</body>
+</html>
