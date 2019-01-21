@@ -1,0 +1,133 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: row;
+	width: 100vw;
+	height: 100vh;
+}
+
+.image {
+	display: flex;
+	flex: 1;
+	background-image: url(./images/1.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.icons {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background: #fff;
+	font-family: 'Font Awesome 5 Brands';
+	margin: 0;
+	padding: 0;
+	display: flex;
+	padding: 20px 28px;
+}
+
+.icons li {
+	list-style: none;
+	padding: 0px 14px;
+}
+
+.icons li:first-child {
+	padding-left: 0px;
+}
+
+.icons li:last-child {
+	padding-right: 0px;
+}
+
+
+.content {
+	display: flex;
+	flex: 1;
+	max-width: 570px;
+	position: relative;
+}
+
+.title {
+	font-family: Montserrat, sans-serif;
+	font-weight: 900;
+	font-size: 120px;
+	margin: 0;
+	position: absolute;
+	right: 80px;
+	top: 254px;
+}
+
+.author {
+	padding-left: 48px;
+	font-family: Montserrat, sans-serif;
+	font-weight: 500;
+	color: #FF3773;
+	font-size: 24px;
+	position: absolute;
+	top: 235px;
+	left: 0px;
+}
+
+.author:before {
+	content: " ";
+	position: absolute;
+	width: 20px;
+	height: 3px;
+	left: 14px;
+	top: 13px;
+	background: #D8D8D8;
+}
+
+
+.description {
+	background: #ffffff;
+	position: absolute;
+	top: 440px;
+	right: 0px;
+	padding: 34px;
+	padding-right: 0px;
+	margin: 0;
+
+	display: flex;
+	align-items: center;
+}
+
+.description .text {
+	font-family: Montserrat, sans-serif;
+	font-weight: 100;
+	font-size: 40px;
+}
+
+.description .detail {
+    white-space: nowrap;
+    padding: 0px 100px;
+}
+
+.no-wrap {
+	white-space: nowrap;
+}
+
+.button {
+	display: inline-block;
+	font-family: Montserrat, sans-serif;
+	font-weight: medium;
+	font-size: 16px;
+	padding: 18px 45px;
+	border-radius: 26px;
+	text-decoration: none;
+}
+
+.pink {
+	background: #FF3773;
+	color: #ffffff;
+}
+
+.text-pink {
+	color: #FF3773;
+}
