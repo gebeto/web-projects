@@ -1,0 +1,47 @@
+body, ul, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+body {
+	
+}
+
+
+/*
+	
+	Main
+
+*/
+
+
+
+.wrapper {
+	width: 100vw;
+	height: 100vh;
+	/*background: yellow;*/
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+}
+
+.book {
+	// width: 300px;
+	// height: 300px;
+	overflow-y: auto;
+	background: #eee;
+	border: 1px solid #333;
+}
+
+.books {
+	// width: 300px;
+
+	&-item {
+		padding: 10px 0px;
+		// line-height: 20px;
+	}
+}
