@@ -1,6 +1,6 @@
 // import plist from 'plist';
 
-export const base = 'http://localhost:3000';
+export const base = (window as any).HOST || 'http://localhost:3000';
 // export const corsUrl = (url: string): any => `https://cors.io/?${url}`;
 // export const corsFetch = (url: string): any => fetch(corsUrl(url));
 

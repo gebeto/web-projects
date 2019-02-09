@@ -14,6 +14,29 @@ app.use(function(req, res, next) {
 });
 
 
+app.get('/', function (req, res) {
+	res.send(`
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+
+    <meta name="author" content="slavik.nychkalo@gmail.com">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+  </head>
+  <body>
+	<div class="root" id="root"></div>
+	<script>
+		window.HOST = '';
+	</script>
+    <script src="https://gebeto.github.io/web-projects/books/dist/bundle.js"></script>
+  </body>
+</html>
+	`);
+});
+
+
 app.get('/books', function (req, res) {
 	const { bookId } = req.params;
 	const url = 'https://api.dm-development.net/audiobooks/lb00/learnenglish.json';
