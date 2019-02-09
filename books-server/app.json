@@ -1,0 +1,8 @@
+{
+  "name": "Books server",
+  "description": "Books server for frontend",
+  "repository": "https://github.com/gebeto/web-projects/",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "keywords": ["node", "express", "heroku"],
+  "image": "heroku/nodejs"
+}
