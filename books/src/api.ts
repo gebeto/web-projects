@@ -1,18 +1,17 @@
-import plist from 'plist';
+// import plist from 'plist';
 
-
-const corsFetch = (url: string): any => fetch(`https://cors.io/?${url}`);
+export const base = 'http://localhost:3000';
+// export const corsUrl = (url: string): any => `https://cors.io/?${url}`;
+// export const corsFetch = (url: string): any => fetch(corsUrl(url));
 
 export const getBooks = (): any => {
-	return corsFetch('https://api.dm-development.net/audiobooks/lb00/learnenglish.json')
+	return fetch(`${base}/books`)
 		.then((res: any) => res.json())
 		.then(res => res.books)
 }
 
 export const getBook = (bookId: any): any => {
-	return corsFetch(`https://storage.loudbook.ru/storagenew/${bookId}/recordsList.plist`)
-		.then((res: any) => res.text())
-		.then(res => {
-			return plist.parse(res);
-		});
+	return fetch(`${base}/books/${bookId}`)
+		.then((res: any) => res.json())
+		.then(res => res.book)
 }

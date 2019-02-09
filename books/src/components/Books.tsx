@@ -22,7 +22,6 @@ class Books extends React.Component<any, any> {
 	}
 
 	onBookSelect = (book) => {
-		console.log(book);
 		this.props.selectBook(book.book_id);
 	}
 
@@ -45,22 +44,27 @@ export default connect(
 		books: state.books,
 	}),
 	dispatch => ({
+
 		fetchBooks() {
 			getBooks().then((books: any) => {
-				console.log(books);
 				dispatch({
 					type: 'SET_BOOKS',
 					payload: books,
 				})
 			});
 		},
+
 		selectBook(bookId) {
 			getBook(bookId).then(book => {
 				dispatch({
 					type: 'SET_BOOK',
-					payload: book,
+					payload: {
+						...book,
+						book_id: bookId
+					},
 				});
 			});
-		}
+		},
+
 	}),
 )(Books)

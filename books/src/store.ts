@@ -3,6 +3,8 @@ import { createStore, AnyAction } from 'redux';
 const initialState = {
 	active: 0,
 	books: [],
+	book: {},
+	track: {},
 }
 
 function global(state: any = initialState, action: AnyAction) {
@@ -17,6 +19,11 @@ function global(state: any = initialState, action: AnyAction) {
 		return {
 			...state,
 			book: action.payload,
+		};
+	} else if (action.type === 'SET_TRACK') {
+		return {
+			...state,
+			track: action.payload,
 		};
 	} else if (false) {
 

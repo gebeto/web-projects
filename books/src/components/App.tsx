@@ -1,6 +1,8 @@
 import * as React from 'react';
+
 import Books from './Books';
 import Book from './Book';
+import Player from './Player';
 
 export default class App extends React.Component<any, any> {
 	render() {
@@ -8,6 +10,7 @@ export default class App extends React.Component<any, any> {
 			<div className="wrapper">
 				<Books />
 				<Book />
+				<Player />
 			</div>
 		);
 	}

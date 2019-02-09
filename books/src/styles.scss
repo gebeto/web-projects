@@ -19,6 +19,20 @@ body {
 */
 
 
+.list {
+	overflow-y: auto;
+	background: #eee;
+	border: 1px solid #333;
+
+	&-item {
+		padding: 10px 0px;
+
+		&-active {
+			color: red;
+		}
+	}
+}
+
 
 .wrapper {
 	width: 100vw;
@@ -35,6 +49,14 @@ body {
 	overflow-y: auto;
 	background: #eee;
 	border: 1px solid #333;
+
+	&-track {
+		padding: 10px 0px;
+
+		&-active {
+			color: red;
+		}
+	}
 }
 
 .books {

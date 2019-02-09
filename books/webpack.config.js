@@ -1,11 +1,9 @@
 const path = require("path");
 
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-function srcPath(subdir) {
-	return path.join(__dirname, "src", subdir);
-}
 
 const config = {
 	entry: path.resolve(__dirname, "src/index.tsx"),
@@ -49,6 +47,10 @@ const config = {
 		new CleanWebpackPlugin([
 			"dist",
 		]),
+		new HtmlWebpackPlugin({
+			template: "src/index.html",
+			inject: false,
+		}),
 	],
 };
 
