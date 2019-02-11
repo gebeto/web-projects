@@ -1,13 +1,13 @@
-import { createStore, AnyAction } from 'redux';
+import { createStore, AnyAction, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const initialState = {
-	active: 0,
 	books: [],
 	book: {},
 	track: {},
 }
 
-function global(state: any = initialState, action: AnyAction) {
+function globalReducer(state: any = initialState, action: AnyAction) {
 	console.log(state, action);
 
 	if (action.type === 'SET_BOOKS') {
@@ -33,4 +33,4 @@ function global(state: any = initialState, action: AnyAction) {
 }
 
 
-export default createStore(global);
+export default createStore(globalReducer, composeWithDevTools());

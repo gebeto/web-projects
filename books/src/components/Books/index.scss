@@ -1,0 +1,82 @@
+.books {
+	// width: 300px;
+	font-family: Arial, sans-serif;
+
+	&-item {
+		padding: 10px 0px;
+		// line-height: 20px;
+	}
+}
+
+
+
+.books {
+	background: #fff;
+	overflow-y: auto;
+	overflow-x: visible;
+	min-width: 320px;
+	max-width: 320px;
+
+	&-item {
+		padding: 12px;
+		display: flex;
+		align-items: center;
+		transition-duration: 0.2s;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #f6f6f6;
+			box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.1);
+		}
+
+		&-active {
+			color: red;
+		}
+
+		&-image {
+			width: 50px;
+			height: 50px;
+			max-height: 50px;
+			max-width: 50px;
+			min-height: 50px;
+			min-width: 50px;
+			background: #333;
+			margin-right: 12px;
+			border-radius: 3px;
+			overflow: hidden;
+
+			img {
+				max-width: 100%;
+				max-height: 100%;
+			}
+		}
+
+		&-title {
+			display: flex;
+			flex-direction: column;
+			flex: 1;
+
+			&-description {
+				display: flex;
+				justify-content: space-between;
+				font-size: 0.7em;
+				color: #aaa;
+				font-weight: 100;
+			}
+		}
+
+		&-buttons {
+			display: flex;
+			align-items: stretch;
+			align-self: stretch;
+
+			button {
+				border: none;
+				border-left: 1px solid #eee;
+				height: 100%;
+				padding: 10px;
+				cursor: pointer;
+			}
+		}
+	}
+}

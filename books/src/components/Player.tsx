@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { base } from '../api';
+import { trackLink } from '../api';
 import ReactHowler from 'react-howler';
 import raf from 'raf';
 
@@ -18,7 +18,7 @@ class Player extends React.Component<any, any> {
 			return <audio controls></audio>;
 		}
 		return (
-			<audio src={`${base}/books/${bookId}/${file}`} autoPlay controls></audio>
+			<audio src={trackLink(bookId, file)} autoPlay controls></audio>
 		)
 	}
 }

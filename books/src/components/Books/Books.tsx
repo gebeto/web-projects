@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 
-import { getBooks, getBook } from '../api';
 
 class BookItem extends React.Component<any, any> {
 	onClick = () => {
@@ -11,7 +9,20 @@ class BookItem extends React.Component<any, any> {
 	render() {
 		const { book } = this.props;
 		return (
-			<li className="books-item" onClick={this.onClick} key={book.book_id}>{book.title}</li>
+			<li className="books-item" onClick={this.onClick}>
+				<span className="books-item-image">
+					<img src={`https://storage.loudbook.ru/storages8/${book.book_id}/cover.jpg`} alt=""/>
+				</span>
+				<span className="books-item-title">
+					<span className="books-item-title-text">
+						{book.title}
+					</span>
+					<span className="books-item-title-description">
+						<span>{book.author}</span>
+						<span>{book.length}</span>
+					</span>
+				</span>
+			</li>
 		);
 	}
 }
@@ -39,32 +50,4 @@ class Books extends React.Component<any, any> {
 	}
 }
 
-export default connect(
-	(state: any) => ({
-		books: state.books,
-	}),
-	dispatch => ({
-
-		fetchBooks() {
-			getBooks().then((books: any) => {
-				dispatch({
-					type: 'SET_BOOKS',
-					payload: books,
-				})
-			});
-		},
-
-		selectBook(bookId) {
-			getBook(bookId).then(book => {
-				dispatch({
-					type: 'SET_BOOK',
-					payload: {
-						...book,
-						book_id: bookId
-					},
-				});
-			});
-		},
-
-	}),
-)(Books)
+export default Books;

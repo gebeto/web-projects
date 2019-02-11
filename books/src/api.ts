@@ -1,8 +1,9 @@
 // import plist from 'plist';
 
 export const base = typeof (window as any).HOST !== 'string' ? 'http://localhost:3000' : (window as any).HOST;
-// export const corsUrl = (url: string): any => `https://cors.io/?${url}`;
-// export const corsFetch = (url: string): any => fetch(corsUrl(url));
+
+export const trackLink = (bookId, trackFile) => `${base}/books/${bookId}/${trackFile}`;
+export const courseCoverLink = (bookId) => `https://storage.loudbook.ru/storages8/${bookId}/cover.jpg`;
 
 export const getBooks = (): any => {
 	return fetch(`${base}/books`)

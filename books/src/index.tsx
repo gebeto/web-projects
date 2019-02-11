@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 import App from './components/App';
-import './styles.scss';
+import './index.scss';
 
 
 ReactDOM.render(
