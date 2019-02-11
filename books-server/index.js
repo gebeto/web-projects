@@ -39,7 +39,13 @@ app.get('/', function (req, res) {
 
 app.get('/books', function (req, res) {
 	const { bookId } = req.params;
-	const url = 'https://api.dm-development.net/audiobooks/lb00/learnenglish.json';
+	const url = 'https://api.dm-development.net/audiobooks/lb00/categories.json';
+	request.get(url).pipe(res);
+});
+
+app.get('/books-:category', function (req, res) {
+	const { category } = req.params;
+	const url = `https://api.dm-development.net/audiobooks/lb00/${category}`;
 	request.get(url).pipe(res);
 });
 
