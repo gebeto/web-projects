@@ -12,7 +12,7 @@ export const getCategories = (): any => {
 }
 
 export const getBooks = (): any => {
-	return fetch(`${base}/books`)
+	return fetch(`${base}/books-learnenglish.json`)
 		.then((res: any) => res.json())
 		.then(res => res.books)
 }
