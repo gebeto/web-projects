@@ -6,6 +6,6 @@ seo: true
 defaults:
   -
     scope:
-      path: "mimo/**/*"
+      path: "mimo/**/*.html"
     values:
       sitemap: false
