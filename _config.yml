@@ -3,9 +3,3 @@ remote_theme: pages-themes/cayman
 plugins:
   - jekyll-sitemap
 seo: true
-defaults:
-  -
-    scope:
-      path: "mimo/**/*.html"
-    values:
-      sitemap: false
