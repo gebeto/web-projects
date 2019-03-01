@@ -1,3 +1,3 @@
 # web-projects
 
-Some userful, and some not useful, thingswink
+Some userful, and some not useful, things
