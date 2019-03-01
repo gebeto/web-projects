@@ -1,5 +1,5 @@
 theme: jekyll-theme-cayman
-remote_theme: pages-themes/cayman
+remote_theme: ankitsultana/researcher
 plugins:
   - jekyll-sitemap
 seo: true
