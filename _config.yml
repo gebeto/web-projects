@@ -1,23 +1,10 @@
-theme: jekyll-theme-cayman
-remote_theme: ankitsultana/researcher@gem
+remote_theme: gebeto/researcher
 seo: true
 plugins:
   - jekyll-sitemap
 
-
-title: Researcher
-url: "https://ankitsultana.com"
-baseurl: "/researcher"
-
-markdown: kramdown
-
-footer: yes
 footer_url: "https://github.com/ankitsultana"
-footer_text: "Page design by Ankit Sultana"
-
-sass:
-    style: compressed
-    sass_dir: _sass
+footer: "Page design by Ankit Sultana"
 
 nav:
  - name: "About"
