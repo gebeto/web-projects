@@ -1,0 +1,15 @@
+remote_theme: gebeto/researcher
+seo: true
+plugins:
+  - jekyll-sitemap
+
+footer_url: "https://github.com/ankitsultana"
+footer: "Page design by Ankit Sultana"
+
+nav:
+ - name: "About"
+   link: "/researcher/"
+ - name: "Resume"
+   link: "resume.pdf"
+ - name: "Contact"
+   link: "contact"
