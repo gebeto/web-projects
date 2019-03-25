@@ -44,11 +44,8 @@
 </div>
 
 
-<!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
 	<div class="modal-dialog">
-
-		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -56,27 +53,25 @@
 			</div>
 			<div class="modal-body">
 				<table class="table table-striped">
-					<tbody id="versions-table">
-						
-					</tbody>
+					<tbody id="versions-table"></tbody>
 				</table>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			</div>
 		</div>
-
 	</div>
 </div>
-
 
 
 <script>
 	function AppRow(app) {
 		this.row = document.createElement('tr');
-		this.row.innerHTML = '<td>' + app.name + '</td> \
-							  <td>' + app.bundleId + '</td> \
-							  <td><a target="_blank" href="' + app.shortUrl + '">' + app.shortUrl + '</a></td>';
+		this.row.innerHTML = [
+			'<td>' + app.name + '</td>',
+			'<td>' + app.bundleId + '</td>',
+			'<td><a target="_blank" href="' + app.shortUrl + '">' + app.shortUrl + '</a></td>',
+		].join('');
 
 		var versionButton = document.createElement('button');
 		var versionButtonTd = document.createElement('td');
@@ -104,8 +99,8 @@
 						return 0;
 					}).map(function(item, index) {
 						tableHTML += '<tr>';
-						tableHTML += '<th>' + item.bundle_version + '</th>';
-						tableHTML += '<td>' + item.external_identifier + '</td>';
+						tableHTML += '	<th>' + item.bundle_version + '</th>';
+						tableHTML += '	<td>' + item.external_identifier + '</td>';
 						tableHTML += '</tr>';
 					});
 					versionsTable.innerHTML = tableHTML;
