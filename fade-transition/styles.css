@@ -1,0 +1,86 @@
+body {
+	padding: 0;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	background: #000;
+	color: #fff;
+}
+
+
+h1 {
+	padding: 0 40px;
+	font-size: 100px;
+}
+
+
+
+/*
+
+	FADE IN
+
+*/
+.fade-in:after {
+	content: " ";
+	position: fixed;
+	top: 0%;
+	right: 0%;
+	width: 0%;
+	height: 100%;
+	background: #FFF;
+}
+
+.fade-in:after {
+	animation: fade-in 0.5s ease forwards;
+}
+
+@keyframes fade-in {
+	0% {
+		right: 0%;
+		width: 100%;
+	}
+	
+	100% {
+		right: 0%;
+		width: 0%;
+	}
+}
+
+
+
+
+/*
+
+	FADE OUT
+
+*/
+.fade-out:after {
+	content: " ";
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 0%;
+	height: 100%;
+	background: #FFF;
+}
+
+.fade-out:after {
+	animation: fade-out 0.5s ease forwards;
+}
+
+@keyframes fade-out {
+	0% {
+		left: 0%;
+		width: 0%;
+	}
+	
+	100% {
+		left: 0%;
+		width: 100%;
+	}
+}
