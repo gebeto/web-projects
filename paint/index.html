@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Paint</title>
+	<style>
+		body {
+			margin: 0;
+		}
+		canvas {
+			width: 100%;
+			border: 1px solid red;
+			display: block;
+			margin: 0;
+			box-sizing: border-box;
+			padding: 0;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div><canvas width="800"></canvas></div>
+	<div><canvas width="800"></canvas></div>
+	<div><canvas width="800"></canvas></div>
+	<div><canvas width="800"></canvas></div>
+	<div><canvas width="800"></canvas></div>
+	<div><canvas width="800"></canvas></div>
+	<div><canvas width="800"></canvas></div>
+	<div><canvas width="800"></canvas></div>
+	
+	<script src="mouse.js"></script>
+	<script>
+		
+		const canvases = [...document.querySelectorAll('canvas')];
+		const ctxs = canvases.map(canvas => canvas.getContext('2d'));
+		const renders = ctxs.map((ctx, index) => renderer(ctx, { text: index }));
+
+		function renderer(ctx, opts) {
+			ctx.font = '20px Arial';
+			ctx.textBaseline = 'middle';
+			const bounds = ctx.canvas.getBoundingClientRect();
+			const canvas = ctx.canvas;
+			const mouseObj = mouseForChart({ canvas: ctx.canvas, canvasBounds: bounds })
+			const mouse = mouseObj.mouse;
+
+			function updateBounds() {
+				const newBounds = ctx.canvas.getBoundingClientRect();
+				// if (newBounds.width !== canvas.width || newBounds.height !== canvas.height) {
+					bounds.left = newBounds.left;
+					bounds.top = newBounds.top;
+					canvas.width = newBounds.width;
+					canvas.height = 150;
+					bounds.left = newBounds.left;
+					bounds.right = newBounds.right;
+					bounds.top = newBounds.top;
+					bounds.bottom = newBounds.bottom;
+					bounds.x = newBounds.x;
+					bounds.y = newBounds.y;
+				// }
+			}
+
+			return function render() {
+				updateBounds();
+				ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+				ctx.fillRect(mouse.newX - 5, mouse.newY - 5, 10, 10);
+				ctx.fillRect(0, 0, 10, 10);
+				ctx.fillText('index ' + opts.text, 10, 20);
+				ctx.fillText('left ' + bounds.left, 10, 40);
+				ctx.fillText('right ' + bounds.right, 10, 60);
+				ctx.fillText('top ' + bounds.top, 10, 80);
+				ctx.fillText('bottom ' + bounds.bottom, 10, 100);
+				ctx.fillText('x ' + bounds.x, 10, 120);
+				ctx.fillText('y ' + bounds.y, 10, 140);
+			}
+		}
+
+		function loop(time) {
+			renders.forEach(render => render());
+			requestAnimationFrame(loop);
+		}
+
+		requestAnimationFrame(loop);
+
+
+
+	</script>
+</body>
+</html>
