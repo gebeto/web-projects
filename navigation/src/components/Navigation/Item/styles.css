@@ -1,0 +1,71 @@
+
+.nav-item {
+    background-color: #ffffff;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+    margin: 0 10px;
+    transition: background 0.4s linear;
+
+    position: relative;
+    max-width: 25%;
+}
+
+.nav-item i {
+    font-size: 1.2em;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-item p {
+    font-weight: bold;
+    overflow: hidden;
+    max-width: 0%;
+    transition-duration: 0.4s;
+}
+
+.nav-item.active p {
+    padding-left: 30px;
+    max-width: 100%;
+}
+
+.nav-item.active.purple {
+    background-color: rgba(91, 55, 183, 0.2);
+    color: rgba(91, 55, 183, 1);
+}
+
+.nav-item.active.pink {
+    background-color: rgba(201, 55, 157, 0.2);
+    color: rgba(201, 55, 157, 1);
+}
+
+.nav-item.active.yellow {
+    background-color: rgba(230, 169, 25, 0.2);
+    color: rgba(230, 169, 25, 1);
+}
+
+.nav-item.active.teal {
+    background-color: rgba(28, 150, 162, 0.2);
+    color: rgba(28, 150, 162, 1);
+}
+
+@media (max-width: 450px) {
+    .nav {
+        padding: 20px;
+        width: 350px;
+    }
+
+    .nav-item {
+        padding: 0 10px;
+        margin: 0;
+    }
+
+    .nav-item i {
+        font-size: 1em;
+    }
+}
