@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>App Store</title>
+	<meta name="viewport" content="user-scalable=no, width=device-width">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>.row {margin-top: 20px;}</style>
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
+			<form class="form-group" id="main-form">
+				<div class="input-group my-group"> 
+					<span class="input-group-addon">
+						<input type="radio" value="us" name="country" checked>EN
+						<input type="radio" value="ru" name="country" >RU
+					</span>
+					<input type="text" class="form-control" id="search" placeholder="Search"/>
+					<span class="input-group-btn">
+						<input class="btn btn-default my-group-button" type="submit" value="Search">
+					</span>
+				</div>
+			</form>
+		</div>
+		
+		<div class="col-md-12 table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<th>Title</th>
+					<th>Bundle ID</th>
+					<th>Url</th>
+					<th>Versions</th>
+				</thead>
+				<tbody id="main-table"></tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" id="version-modal-title">Modal Header</h4>
+			</div>
+			<div class="modal-body">
+				<table class="table table-striped">
+					<tbody id="versions-table"></tbody>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="./static/main.js"></script>
+</body>
+</html>
