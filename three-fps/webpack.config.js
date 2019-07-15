@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = (env) => ({
 	entry: path.resolve(__dirname, 'src/index.ts'),
@@ -15,7 +16,7 @@ const config = (env) => ({
 	module: {
 		rules: [
 			{
-				test: /\.tsx?$/,
+				test: /\.(t|j)sx?$/,
 				loader: 'babel-loader',
 			},
 			// {
@@ -38,7 +39,20 @@ const config = (env) => ({
 			// 	]
 			// }
 		]
-	}
+	},
+
+	devServer: {
+		contentBase: path.join(__dirname, 'dist'),
+		compress: true,
+		port: 9000
+	},
+
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: 'index.html',
+			inject: false,
+		})
+	]
 });
 
 
