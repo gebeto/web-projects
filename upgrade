@@ -27,14 +27,14 @@ if test -f "$PACKAGE"; then
 	echo "$FILE exist $PACKAGE"
 	y_install
 	y_outdated
-	echo "Need to upgrade? (Y/N)"
-	read comm
-	if [[ $comm == "Y" ]]; then
+	# echo "Need to upgrade? (Y/N)"
+	# read comm
+	# if [[ $comm == "Y" ]]; then
 		echo " >> UPGRADING"
 		y_upgrade $1
-	else
-		echo "Cancel upgrade"
-	fi
+	# else
+	# 	echo "Cancel upgrade"
+	# fi
 	# y_upgrade
 else
 	echo "Is not a package"
