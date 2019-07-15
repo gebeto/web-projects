@@ -1,6 +1,9 @@
 import * as THREE from 'three';
 import * as CANNON from 'cannon';
 
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+
+console.log(OBJLoader);
 // import PointerLockControls from './PointerLockControl';
 
 
