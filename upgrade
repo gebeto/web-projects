@@ -1,0 +1,8 @@
+#! /bin/zsh
+
+echo "Upgrading: $1";
+pushd $1
+yarn
+yarn outdated
+yarn upgrade --latest
+popd
