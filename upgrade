@@ -13,6 +13,8 @@ function y_install {
 
 function y_upgrade {
 	yarn upgrade --latest
+	git add .
+	git commit -m "upgrade dependences of '$1'"
 }
 
 echo "Checking: $1";
@@ -29,7 +31,7 @@ if test -f "$PACKAGE"; then
 	read comm
 	if [[ $comm == "Y" ]]; then
 		echo " >> UPGRADING"
-		y_upgrade
+		y_upgrade $1
 	else
 		echo "Cancel upgrade"
 	fi
