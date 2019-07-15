@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-sass": "^4.9.4"
+    "node-sass": "^4.12.0"
   }
 }
