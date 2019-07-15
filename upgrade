@@ -1,8 +1,45 @@
 #! /bin/zsh
 
-echo "Upgrading: $1";
+
+
+function y_outdated {
+	yarn outdated
+}
+
+function y_install {
+	rm -rf node_modules
+	yarn install
+}
+
+function y_upgrade {
+	yarn upgrade --latest
+}
+
+echo "Checking: $1";
 pushd $1
-yarn
-yarn outdated
-yarn upgrade --latest
+
+PACKAGE=package.json
+PACKAGE_LOCK=package-lock.json
+
+if test -f "$PACKAGE"; then
+	echo "$FILE exist $PACKAGE"
+	y_install
+	y_outdated
+	echo "Need to upgrade? (Y/N)"
+	read comm
+	if [[ $comm == "Y" ]]; then
+		echo " >> UPGRADING"
+		y_upgrade
+	else
+		echo "Cancel upgrade"
+	fi
+	# y_upgrade
+else
+	echo "Is not a package"
+fi
+
+if test -f "$PACKAGE_LOCK"; then
+	echo "$FILE exist $PACKAGE_LOCK"
+fi
+
 popd
