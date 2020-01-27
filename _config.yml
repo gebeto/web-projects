@@ -1,4 +1,5 @@
-remote_theme: gebeto/researcher
+# remote_theme: gebeto/researcher
+remote_theme: fongandrew/hydeout
 seo: true
 plugins:
   - jekyll-sitemap
